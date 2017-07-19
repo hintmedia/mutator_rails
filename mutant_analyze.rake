@@ -22,7 +22,7 @@ if Rails.env.development? || Rails.env.test?
         content = File.read(target_log)
 
         begin
-          list << MutatationLog.new(target_log, content)
+          list << MutationLog.new(target_log)
         rescue StandardError => se
           puts "Error: #{se}"
         end
