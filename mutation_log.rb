@@ -3,7 +3,7 @@
 class MutationLog
 
   include Adamantium::Flat
-  include Concord.new(:target_log, :content)
+  include Concord.new(:target_log)
 
   HEADER = ['log',
             'kills',
@@ -13,18 +13,30 @@ class MutationLog
             'mutations per sec',
             'runtime'].join("\t") + "\n".freeze
 
+  def initialize(*)
+    super
+
+    @content = File.read(target_log)
+  end
+
   def to_s
     [inc, kills, alive, total, pct, mutations_per_sec].join("\t")
   end
 
   private
 
-  def inc
-    '=HYPERLINK("file://' + Rails.root.join(target_log).to_s + '")'
-  end
+  attr_reader :content
 
   def alive
     content.match(/Alive:.+?(\d+)$/)[1]
+  end
+
+  def absolute_file_path
+    File.expand_path(File.join(File.dirname(target_log), target_log)).to_s
+  end
+
+  def inc
+    "=HYPERLINK(\"file://#{absolute_file_path}\")"
   end
 
   def kills
@@ -53,7 +65,8 @@ class MutationLog
     alive.to_i + kills.to_i
   end
 
-  def <=> (other)
-    self.pct <=> other.pct
+  def <=>(other)
+    pct <=> other.pct
   end
+
 end
