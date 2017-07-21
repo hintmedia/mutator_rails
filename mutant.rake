@@ -100,16 +100,6 @@ if Rails.env.development? || Rails.env.test?
       f = cs.join('::')
       f += '::' if f.present?
       return f
-
-      sections = rest.split('/')
-      if sections.one?
-        segment = sections.first
-        if segment.size <= 3
-          return (segment.upcase + '::').sub('::::', '::')
-        end
-      end
-
-      (rest.camelize + '::').sub('::::', '::')
     end
 
     desc 'Run mutation tests on the lib,export,import,... set'
