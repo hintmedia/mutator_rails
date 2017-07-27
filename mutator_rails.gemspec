@@ -29,4 +29,5 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'concord',            '~> 0.1.4'
   gem.add_development_dependency 'procto',             '~> 0.0.3'
   gem.add_development_dependency 'adamantium',         '~> 0.2.0'
+  gem.add_development_dependency 'reek',               '~> 4.7.2'
 end
