@@ -19,8 +19,6 @@ if Rails.env.development? || Rails.env.test?
       FileList.new('log/mutant/**/*.log').each do |target_log|
         next unless File.exist?(target_log)
 
-        content = File.read(target_log)
-
         begin
           list << MutationLog.new(target_log)
         rescue StandardError => se
