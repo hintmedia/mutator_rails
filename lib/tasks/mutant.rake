@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'etc'
 
 if Rails.env.development? || Rails.env.test?
@@ -38,7 +39,7 @@ if Rails.env.development? || Rails.env.test?
   def exclude?(file)
     EXCLUSIONS.detect { |exclusion| file =~ exclusion }.present?
   end
-  
+
   namespace :mutant do
 
     MUTANT_VERSION = `bundle exec mutant --version`.strip.split('-').last
@@ -112,7 +113,7 @@ if Rails.env.development? || Rails.env.test?
           .sort_by { |x| File.size(x) }.each do |file|
           next if file =~ /models/ # skip models
           next if exclude?(file)
-          
+
           parms = ['-r./config/environment.rb']
           path  = Pathname.new(file)
           md5   = Digest::MD5.file(path).hexdigest
