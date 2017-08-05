@@ -1,8 +1,20 @@
 # frozen_string_literal: true
 
 require 'etc'
+require 'yaml'
+require 'json'
+require 'ostruct'
 
 if Rails.env.development? || Rails.env.test?
+
+  PROJECT_ROOT   = Pathname.new(__dir__).parent.parent.expand_path.freeze
+  CONFIG_DEFAULT = PROJECT_ROOT.join('mutator_rails.yml').freeze
+  CONFIG         = JSON.parse(YAML::load_file(CONFIG_DEFAULT).to_json, object_class: OpenStruct).freeze
+
+  require 'fileutils'
+  require Rails.root('config/environment.rb')
+
+  private_constant(:CONFIG_DEFAULT, :PROJECT_ROOT)
 
   def rerun(cmd, log, spec)
     if File.exist?(log)
@@ -14,7 +26,6 @@ if Rails.env.development? || Rails.env.test?
         puts log
         puts "[#{Time.current.iso8601}] #{cmd2}"
         `#{cmd2}`
-
       end
     end
   end
@@ -34,10 +45,8 @@ if Rails.env.development? || Rails.env.test?
     path.sub('app/', 'spec/').sub('.rb', '_spec.rb')
   end
 
-  EXCLUSIONS = [/shared/, /observer/, /rails_admin/, /core_ext/, /one_time_job/].freeze
-
   def exclude?(file)
-    EXCLUSIONS.detect { |exclusion| file =~ exclusion }.present?
+    CONFIG.exclusions.detect {|exclusion| file =~ exclusion}.present?
   end
 
   namespace :mutant do
@@ -46,13 +55,10 @@ if Rails.env.development? || Rails.env.test?
 
     desc 'Run mutation tests on the full model set'
     task :models do
-      require 'fileutils'
-      require_relative '../../../config/environment.rb' 
-
-      klasses = ActiveRecord::Base.send(:descendants).map { |k| k.name.to_s }
+      klasses = ActiveRecord::Base.send(:descendants).map {|k| k.name.to_s}
 
       begin
-        FileList.new('app/models/**/*.rb').sort_by { |x| File.size(x) }.each do |file|
+        FileList.new('app/models/**/*.rb').sort_by {|x| File.size(x)}.each do |file|
           next if exclude?(file)
           parms = ['-r./config/environment.rb']
           path  = Pathname.new(file)
@@ -60,7 +66,7 @@ if Rails.env.development? || Rails.env.test?
           parms << '--use rspec'
           base = path.basename.to_s.gsub(path.extname, '').camelize
           unless klasses.include?(base)
-            base = klasses.detect { |k| base.casecmp(k).zero? }
+            base = klasses.detect {|k| base.casecmp(k).zero?}
           end
 
           if base.present?
@@ -68,8 +74,8 @@ if Rails.env.development? || Rails.env.test?
 
             spec         = spec_file(path)
             md5_spec     = Digest::MD5.file(spec).hexdigest
-            log_dir      = path.dirname.sub('app/', 'log/mutant/')
-            log_location = path.sub('app/', 'log/mutant/').sub('.rb', '_')
+            log_dir      = path.dirname.sub('app/', CONFIG.logroot)
+            log_location = path.sub('app/', CONFIG.logroot).sub('.rb', '_')
             log          = "#{log_location}#{md5}_#{md5_spec}_#{MUTANT_VERSION}.log"
             FileUtils.mkdir_p(log_dir)
             parms << '> ' + log
@@ -103,14 +109,12 @@ if Rails.env.development? || Rails.env.test?
       return f
     end
 
-    desc 'Run mutation tests on the lib,export,import,... set'
+    desc 'Run mutation tests on the lib,... set'
     task :lib do
-      require 'fileutils'
-      require_relative '../../../config/environment.rb'
 
       begin
         FileList.new('app/**/*.rb')
-          .sort_by { |x| File.size(x) }.each do |file|
+          .sort_by {|x| File.size(x)}.each do |file|
           next if file =~ /models/ # skip models
           next if exclude?(file)
 
@@ -129,8 +133,8 @@ if Rails.env.development? || Rails.env.test?
 
             md5_spec = Digest::MD5.file(spec).hexdigest
 
-            log_dir      = path.dirname.sub('app/', 'log/mutant/')
-            log_location = path.sub('app/', 'log/mutant/').sub('.rb', '_')
+            log_dir      = path.dirname.sub('app/', CONFIG.logroot)
+            log_location = path.sub('app/', CONFIG.logroot).sub('.rb', '_')
             log          = "#{log_location}#{md5}_#{md5_spec}_#{MUTANT_VERSION}.log"
             FileUtils.mkdir_p(log_dir)
             parms << '> ' + log
