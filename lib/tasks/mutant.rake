@@ -44,7 +44,7 @@ if Rails.env.development? || Rails.env.test?
 
     MUTANT_VERSION = `bundle exec mutant --version`.strip.split('-').last
 
-    desc 'Run mutation tests on the full AOT model set'
+    desc 'Run mutation tests on the full model set'
     task :models do
       require 'fileutils'
       require_relative '../../../config/environment.rb' 
