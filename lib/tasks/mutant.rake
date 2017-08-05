@@ -175,5 +175,10 @@ if Rails.env.development? || Rails.env.test?
         File.write("#{Dir.home}/.rspec", '')
       end
     end
+
+    desc 'Run whole mutation process'
+    task all: [:lib, :modes, :analyze] do
+      puts 'all processed!'
+    end
   end
 end
