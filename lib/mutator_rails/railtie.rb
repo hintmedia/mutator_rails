@@ -7,7 +7,6 @@ module MutatorRails
 
     rake_tasks do
       load 'tasks/mutant.rake'
-      load 'tasks/mutant_analyze.rake'
     end
   end
 end
