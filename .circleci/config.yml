@@ -1,0 +1,48 @@
+version: 2
+jobs:
+  build:
+    parallelism: 1
+    working_directory: ~/mutator_rails
+    docker:
+      - image: circleci/ruby:2.4.1
+    steps:
+      - checkout
+
+      # Restore bundle cache
+      - restore_cache:
+         keys:
+           - mutator_rails-{{ .Branch }}-{{ checksum Gemfile.lock }}
+           - mutator_rails-{{ .Branch }}
+           - mutator_rails
+
+      # Bundle install dependencies
+      - run: bundle install --path vendor/bundle
+
+      # Store bundle cache
+      - save_cache:
+        key: mutator_rails-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+        paths:
+          - vendor/bundle
+      - save_cache:
+        key: mutator_rails-{{ .Branch }}
+        paths:
+          - vendor/bundle
+      - save_cache:
+         key: mutator_rails
+         paths:
+           - vendor/bundle
+
+      # Run rspec in parallel
+      - type: shell
+        command: |
+          bundle exec rspec --profile 10 \
+                            --format RspecJunitFormatter \
+                            --out /tmp/test-results/rspec.xml \
+                            --format progress \
+                            $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
+
+      # Save artifacts
+      - type: store_test_results
+        path: /tmp/test-results
+
+      - run: bundle exec rspec spec/
