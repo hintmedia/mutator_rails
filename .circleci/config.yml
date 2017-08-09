@@ -9,28 +9,17 @@ jobs:
       - checkout
 
       # Restore bundle cache
-      - restore_cache:
-         keys:
-           - mutator_rails-{{ .Branch }}-{{ checksum Gemfile.lock }}
-           - mutator_rails-{{ .Branch }}
-           - mutator_rails
+      - type: cache-restore
+        key: mutator_rails-{{ .Branch }}-{{ checksum 'Gemfile.lock' }}
 
       # Bundle install dependencies
       - run: bundle install --path vendor/bundle
 
       # Store bundle cache
-      - save_cache:
-        key: mutator_rails-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+      - type: cache-save
+        key: mutator_rails-{{ .Branch }}-{{ checksum 'Gemfile.lock' }}
         paths:
           - vendor/bundle
-      - save_cache:
-        key: mutator_rails-{{ .Branch }}
-        paths:
-          - vendor/bundle
-      - save_cache:
-         key: mutator_rails
-         paths:
-           - vendor/bundle
 
       # Run rspec in parallel
       - type: shell
