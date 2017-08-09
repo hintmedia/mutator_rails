@@ -10,14 +10,14 @@ jobs:
 
       # Restore bundle cache
       - type: cache-restore
-        key: mutator_rails-{{ .Branch }}-{{ checksum 'Gemfile.lock' }}
+        key: mutator_rails-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
 
       # Bundle install dependencies
       - run: bundle install --path vendor/bundle
 
       # Store bundle cache
       - type: cache-save
-        key: mutator_rails-{{ .Branch }}-{{ checksum 'Gemfile.lock' }}
+        key: mutator_rails-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
         paths:
           - vendor/bundle
 
