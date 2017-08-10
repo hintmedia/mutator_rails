@@ -5,13 +5,13 @@ class MutationLog
   include Adamantium::Flat
   include Concord.new(:target_log)
 
-  HEADER = ['log',
+  HEADER = (['log',
             'kills',
             'alive',
             'total',
             'pct killed',
             'mutations per sec',
-            'runtime'].join("\t") + "\n".freeze
+            'runtime'].join("\t") + "\n").freeze
 
   def initialize(*)
     super
