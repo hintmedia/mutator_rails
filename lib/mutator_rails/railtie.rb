@@ -6,7 +6,7 @@ module MutatorRails
     railtie_name :mutator_rails
 
     rake_tasks do
-      load 'tasks/mutant.rake'
+      load 'tasks/mutator.rake'
     end
   end
 end
