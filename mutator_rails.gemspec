@@ -12,7 +12,7 @@ Gem::Specification.new do |gem|
 
   gem.require_paths             = 'lib'
   gem.required_rubygems_version = '>= 1.3.6'
-  gem.required_ruby_version     = '>= 2.4'
+  gem.required_ruby_version     = '>= 2.3'
 
   excluded_files       = ''.split("\n")
   gem.files            = `git ls-files`.split("\n") - excluded_files
@@ -22,6 +22,7 @@ Gem::Specification.new do |gem|
 
   gem.add_development_dependency 'bundler',              '~> 1.15'
   gem.add_development_dependency 'rake',                 '~> 10.0'
+  gem.add_development_dependency 'rails',                '>= 4.0'
   gem.add_development_dependency 'rspec-core',           '~> 3.6.0'
   gem.add_development_dependency 'rspec-expectations',   '~> 3.6.0'
   gem.add_development_dependency 'rspec_junit_formatter'

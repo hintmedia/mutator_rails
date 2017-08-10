@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'mutator_rails'
 require 'rails'
 
@@ -6,7 +8,7 @@ module MutatorRails
     railtie_name :mutator_rails
 
     rake_tasks do
-      load 'tasks/mutant.rake'
+      load 'tasks/mutator.rake'
     end
   end
 end

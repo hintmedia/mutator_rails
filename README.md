@@ -4,19 +4,17 @@ Integrate automated mutation testing into your Rails application
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Add these lines to your application's Gemfile:
 
 ```ruby
+gem 'mutant'
+gem 'mutant-rspec'
 gem 'mutator_rails', github: 'dinj-oss/mutator_rails'
 ```
 
 And then execute:
 
     $ bundle
-
-Or install it yourself as:
-
-    $ gem install mutator_rails
 
 ## Usage
 
