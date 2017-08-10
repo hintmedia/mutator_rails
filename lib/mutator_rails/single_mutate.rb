@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module MutatorRails
   class SingleMutate
     include Concord.new(file)
