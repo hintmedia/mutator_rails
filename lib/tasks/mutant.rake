@@ -49,7 +49,7 @@ if Rails.env.development? || Rails.env.test?
     CONFIG.exclusions.detect {|exclusion| file =~ exclusion}.present?
   end
 
-  namespace :mutant do
+  namespace :mutator do
 
     desc 'Run mutation analysis on the mutant logs'
     task :analyze do
