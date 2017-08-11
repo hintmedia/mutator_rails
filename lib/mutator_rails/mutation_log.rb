@@ -20,23 +20,35 @@ module MutatorRails
     end
 
     def to_s
-      [inc, kills, alive, total, pct, mutations_per_sec].join("\t")
+      [link, kills, alive, total, pct, mutations_per_sec].join("\t")
     end
 
     private
 
     attr_reader :content
 
+    def relative_path
+      absolute_file_path.relative_path_from(csv_file)
+    end
+
+    def csv_file
+      Pathname(File.dirname(Pathname(CONFIG.analysis_csv))).realpath
+    end
+
     def alive
       content.match(/Alive:.+?(\d+)$/)[1]
     end
 
-    def absolute_file_path
-      File.expand_path(File.join(File.dirname(target_log), target_log)).to_s
+    def klass
+      content.match(/match_expressions: \[(.+?)\]>$/)[1]
     end
 
-    def inc
-      "=HYPERLINK(\"file://#{absolute_file_path}\")"
+    def absolute_file_path
+      Pathname(target_log).realpath
+    end
+
+    def link
+      "=HYPERLINK(\"#{relative_path}\",\"#{klass}\")"
     end
 
     def kills

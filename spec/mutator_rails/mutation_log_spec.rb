@@ -12,6 +12,7 @@ RSpec.describe MutatorRails::MutationLog do
     it 'processes the all code' do
       expect(subject).to match(expectation)
       expect(subject).to match('HYPERLINK')
+      expect(subject).to match('"Export::ActivityExporter"')
     end
   end
 end
