@@ -20,8 +20,6 @@ module MutatorRails
           puts "Error: #{se}"
         end
       end
-      list.compact!
-      
       return if list.blank?
 
       content = list.sort.map(&:to_s).join('\n')
