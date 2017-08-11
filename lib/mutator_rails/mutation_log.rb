@@ -20,7 +20,7 @@ module MutatorRails
     end
 
     def to_s
-      [link, kills, alive, total, pct, mutations_per_sec].join("\t")
+      [link, kills, alive, total, pct, mutations_per_sec, runtime].join("\t")
     rescue
       ''
     end
