@@ -9,6 +9,7 @@ require 'rake/file_list'
 require 'procto'
 require 'adamantium'
 require 'concord'
+require 'rails'
 
 require 'mutator_rails/config'
 require 'mutator_rails/version'
