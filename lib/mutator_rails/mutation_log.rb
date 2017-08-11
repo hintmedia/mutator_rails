@@ -25,6 +25,12 @@ module MutatorRails
       nil
     end
 
+    def pct
+      return 100 unless total.positive?
+
+      (100.0 * kills.to_f) / total
+    end
+
     private
 
     attr_reader :content
@@ -63,11 +69,6 @@ module MutatorRails
       total.to_f / runtime
     end
 
-    def pct
-      return 100 unless total.positive?
-
-      (100.0 * kills.to_f) / total
-    end
 
     def runtime
       content.match(/Runtime:\s+?(.+)s/)[1].to_f

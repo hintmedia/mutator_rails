@@ -26,8 +26,7 @@ module MutatorRails
 
       content = list.sort.map(&:to_s).join('\n')
 
-      File.write(CONFIG.analysis_csv,
-                 MutationLog::HEADER + content)
+      File.write(CONFIG.analysis_csv, MutationLog::HEADER + content)
     end
   end
 end
