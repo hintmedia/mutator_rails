@@ -9,6 +9,8 @@ module MutatorRails
 
     rake_tasks do
       load 'tasks/mutator.rake'
+      load 'tasks/analyze.rake'
+      load 'tasks/mutate_files.rake'
     end
   end
 end
