@@ -24,7 +24,15 @@ module MutatorRails
 
       content = list.sort.map(&:to_s).join("\n")
 
-      File.write(CONFIG.analysis_csv, MutationLog::HEADER + content)
+      puts " ... storing #{csv}"
+      File.write(csv,
+                 MutationLog::HEADER + content)
+    end
+
+    private
+
+    def csv
+      MutatorRails::Config.configuration.analysis_csv
     end
   end
 end
