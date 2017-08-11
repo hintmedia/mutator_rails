@@ -11,9 +11,10 @@ require 'adamantium'
 require 'concord'
 require 'rails'
 
+require 'mutator_rails/railtie'
 require 'mutator_rails/config'
 require 'mutator_rails/version'
-require 'mutator_rails/railtie'
+
 require 'mutator_rails/analyze'
 require 'mutator_rails/full_mutate'
 
@@ -25,6 +26,4 @@ module MutatorRails
   BASIC_PARMS = ['-r./config/environment.rb', '--use rspec'].freeze
 
   APP_BASE = 'app/'
-
-
 end
