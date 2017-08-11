@@ -18,9 +18,12 @@ module MutatorRails
 
       def load_configuration
         default_config = YAML.load_file(CONFIG_DEFAULT)
-        user_config    = if File.exist?(USER_CONFIG.to_s)
+        user_config    = if USER_CONFIG && File.exist?(USER_CONFIG)
                            YAML.load_file(USER_CONFIG)
                          else
+                           puts "No user config found"
+                           puts PROJECT_ROOT
+                           puts CONFIG_DEFAULT
                            {}
                          end
 
