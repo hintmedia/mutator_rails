@@ -2,18 +2,18 @@
 
 module MutatorRails
   class SingleMutate
-    include Concord.new(file)
+    include Concord.new(:file)
 
     def call
       return if exclude_file?
 
-      parms = BASIC_PARMS
-      parms << preface(file, path.basename) + base
+      parms = BASIC_PARMS.dup
+      parms << preface(path.basename) + base
 
       parms << '> ' + log
 
-      cmd = first_run(log, log_location, parms, spec)
-      rerun(cmd, log)
+      cmd = first_run(parms)
+      rerun(cmd)
     end
 
     def log
@@ -31,15 +31,11 @@ module MutatorRails
     end
 
     def md5_spec
-      Digest::MD5.file(spec).hexdigest
-    end
-
-    def spec
-      spec_file(path)
+      Digest::MD5.file(spec_file).hexdigest
     end
 
     def base
-      path.basename.to_s.gsub(path.extname, '').camelize
+      path.basename.to_s.sub(path.extname, '').camelize
     end
 
     def md5
@@ -50,7 +46,7 @@ module MutatorRails
       Pathname.new(file)
     end
 
-    def rerun(cmd, log)
+    def rerun(cmd)
       return unless File.exist?(log)
 
       content = File.read(log)
@@ -63,8 +59,8 @@ module MutatorRails
       `#{cmd2}`
     end
 
-    def first_run(log, log_location, parms, spec)
-      cmd = spec_opt(spec) + COMMAND + parms.join(' ')
+    def first_run(parms)
+      cmd = spec_opt + COMMAND + parms.join(' ')
 
       if Dir.glob(log).empty? || File.size(log).zero? || !complete?(log)
         begin
@@ -80,12 +76,12 @@ module MutatorRails
       cmd
     end
 
-    def spec_opt(spec)
-      "SPEC_OPTS=\"--pattern #{spec}\" "
+    def spec_opt
+      "SPEC_OPTS=\"--pattern #{spec_file}\" "
     end
 
-    def spec_file(path)
-      path.sub(APP_BASE, 'spec/').sub('.rb', '_spec.rb')
+    def spec_file
+      file.sub(APP_BASE, 'spec/').sub('.rb', '_spec.rb')
     end
 
     def exclude_file?
@@ -94,15 +90,14 @@ module MutatorRails
 
     def complete?(log)
       content = File.read(log)
-      /Kills:/.match(content)
+      /Kills:/.match?(content)
     end
 
-    def preface(file, base)
+    def preface(base)
       rest = file.sub(APP_BASE, '').sub(/(lib)\//, '').sub(base.to_s, '')
       return '' if rest == ''
 
-      spec    = spec_file(file)
-      content = File.read(spec)
+      content = File.read(spec_file)
       d       = content.match(/RSpec.describe\s+([^ ,]+)/)
       cs      = d[1].split('::')
       cs.pop

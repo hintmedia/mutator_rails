@@ -112,6 +112,9 @@ GEM
       procto (~> 0.0.2)
       regexp_parser (~> 0.4.3)
       unparser (~> 0.2.5)
+    mutant-rspec (0.8.14)
+      mutant (~> 0.8.14)
+      rspec-core (>= 3.4.0, < 3.7.0)
     nio4r (2.0.0)
     nokogiri (1.7.2)
       mini_portile2 (~> 2.1.0)
@@ -201,6 +204,7 @@ DEPENDENCIES
   bundler (~> 1.15)
   concord (~> 0.1.4)
   mutant (~> 0.8.14)
+  mutant-rspec (~> 0.8.14)
   mutator_rails!
   procto (~> 0.0.3)
   rails (>= 4.0)

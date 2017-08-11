@@ -15,11 +15,13 @@ module MutatorRails
 
         begin
           list << MutationLog.new(target_log)
-        rescue StandardError => se
+        rescue Exception => se
           # skip it
           puts "Error: #{se}"
         end
       end
+      list.compact!
+      
       return if list.blank?
 
       content = list.sort.map(&:to_s).join('\n')

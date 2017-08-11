@@ -29,6 +29,7 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'rspec_junit_formatter'
   gem.add_development_dependency 'rspec-mocks',          '~> 3.6.0'
   gem.add_development_dependency 'mutant',               '~> 0.8.14'
+  gem.add_development_dependency 'mutant-rspec',         '~> 0.8.14'
   gem.add_development_dependency 'concord',              '~> 0.1.4'
   gem.add_development_dependency 'procto',               '~> 0.0.3'
   gem.add_development_dependency 'adamantium',           '~> 0.2.0'
