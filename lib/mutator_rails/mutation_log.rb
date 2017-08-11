@@ -2,7 +2,6 @@
 
 module MutatorRails
   class MutationLog
-
     include Adamantium::Flat
     include Concord.new(:target_log)
 
@@ -69,6 +68,5 @@ module MutatorRails
     def <=>(other)
       pct <=> other.pct
     end
-
   end
 end

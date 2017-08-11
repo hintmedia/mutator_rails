@@ -54,7 +54,7 @@ module MutatorRails
       return unless File.exist?(log)
 
       content = File.read(log)
-      return unless content =~ /Failures:/
+      return unless content.match?(/Failures:/)
 
       FileUtils.cp(log, '/tmp')
       cmd2 = cmd.sub('--use', '-j1 --use')
@@ -67,7 +67,11 @@ module MutatorRails
       cmd = spec_opt(spec) + COMMAND + parms.join(' ')
 
       if Dir.glob(log).empty? || File.size(log).zero? || !complete?(log)
-        File.delete(Dir.glob("#{log_location}*.log").first) rescue nil
+        begin
+          File.delete(Dir.glob("#{log_location}*.log").first)
+        rescue
+          nil
+        end
 
         puts "[#{Time.current.iso8601}] #{cmd}"
         `#{cmd}`

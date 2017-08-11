@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 require File.expand_path('../lib/mutator_rails/version', __FILE__)
 
 Gem::Specification.new do |gem|
   gem.name          = 'mutator_rails'
   gem.version       = MutatorRails::VERSION.dup
-  gem.authors       = %w(Tim\ Chambers Jason\ Dinsmore)
+  gem.authors       = %w[Tim\ Chambers Jason\ Dinsmore]
   gem.email         = ['tim@possibilogy.com', 'jason@dinjas.com']
   gem.summary       = 'Integrate automated mutation testing into Rails.'
   gem.description   = 'Automate mutation testing to find weaknesses in code'
@@ -18,7 +20,6 @@ Gem::Specification.new do |gem|
   gem.files            = `git ls-files`.split("\n") - excluded_files
   gem.extra_rdoc_files = 'LICENSE'
   gem.executables      = 'mutator_rails'
-
 
   gem.add_development_dependency 'bundler',              '~> 1.15'
   gem.add_development_dependency 'rake',                 '~> 10.0'

@@ -4,7 +4,6 @@ require 'mutator_rails/mutation_log'
 
 module MutatorRails
   class Analyze
-
     include Procto.call
     include Adamantium::Flat
 

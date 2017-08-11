@@ -8,10 +8,8 @@ require 'fileutils'
 
 if Rails.env.development? || Rails.env.test?
 
-
-
   desc 'Run whole mutation process'
-  task all: [:files, :analyze] do
+  task all: %i[files analyze] do
     puts 'all processed!'
   end
 end
