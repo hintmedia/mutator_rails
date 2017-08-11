@@ -1,0 +1,300 @@
+Module#name from: XPath::HTML returned name(.). Fix your lib to follow normal ruby semantics!
+{Module,Class}#name should return resolvable constant name as String or nil
+Module#name from: XPath returned name(.). Fix your lib to follow normal ruby semantics!
+{Module,Class}#name should return resolvable constant name as String or nil
+Mutant configuration:
+Matcher:         #<Mutant::Matcher::Config match_expressions: [Export::ActivityExporter]>
+Integration:     Mutant::Integration::Rspec
+Jobs:            6
+Includes:        []
+Requires:        ["./config/environment.rb"]
+(00/99) 100% - killtime: 0.00s runtime: 0.00s overhead: 0.00s
+(00/99) 100% - killtime: 0.00s runtime: 1.01s overhead: 1.01s
+(00/99) 100% - killtime: 0.00s runtime: 2.02s overhead: 2.02s
+(00/99) 100% - killtime: 0.00s runtime: 3.03s overhead: 3.03s
+(06/99) 100% - killtime: 20.02s runtime: 4.04s overhead: -15.98s
+(06/99) 100% - killtime: 20.02s runtime: 5.04s overhead: -14.98s
+(06/99) 100% - killtime: 20.02s runtime: 6.05s overhead: -13.97s
+(07/99) 100% - killtime: 23.37s runtime: 7.05s overhead: -16.32s
+(12/99) 100% - killtime: 40.64s runtime: 8.06s overhead: -32.58s
+(12/99) 100% - killtime: 40.64s runtime: 9.07s overhead: -31.57s
+(12/99) 100% - killtime: 40.64s runtime: 10.08s overhead: -30.56s
+(18/99) 100% - killtime: 61.69s runtime: 11.09s overhead: -50.60s
+(18/99) 100% - killtime: 61.69s runtime: 12.09s overhead: -49.59s
+(18/99) 100% - killtime: 61.69s runtime: 13.10s overhead: -48.59s
+(18/99) 100% - killtime: 61.69s runtime: 14.11s overhead: -47.58s
+(24/99) 100% - killtime: 81.67s runtime: 15.12s overhead: -66.55s
+(24/99) 100% - killtime: 81.67s runtime: 16.13s overhead: -65.54s
+(24/99) 100% - killtime: 81.67s runtime: 17.15s overhead: -64.52s
+(28/99) 100% - killtime: 95.46s runtime: 18.16s overhead: -77.30s
+(28/99)  93% - killtime: 103.04s runtime: 19.16s overhead: -83.88s
+(28/99)  93% - killtime: 103.04s runtime: 20.17s overhead: -82.87s
+(28/99)  93% - killtime: 103.04s runtime: 21.18s overhead: -81.86s
+(30/99)  88% - killtime: 117.44s runtime: 22.19s overhead: -95.25s
+(30/99)  83% - killtime: 125.24s runtime: 23.20s overhead: -102.04s
+(30/99)  83% - killtime: 125.24s runtime: 24.20s overhead: -101.04s
+(31/99)  83% - killtime: 128.75s runtime: 25.21s overhead: -103.54s
+(33/99)  82% - killtime: 139.71s runtime: 26.22s overhead: -113.49s
+(33/99)  78% - killtime: 147.26s runtime: 27.23s overhead: -120.03s
+(33/99)  78% - killtime: 147.26s runtime: 28.24s overhead: -119.03s
+(33/99)  78% - killtime: 147.26s runtime: 29.25s overhead: -118.02s
+(35/99)  77% - killtime: 159.20s runtime: 30.25s overhead: -128.95s
+(38/99)  79% - killtime: 171.71s runtime: 31.27s overhead: -140.44s
+(38/99)  79% - killtime: 171.71s runtime: 32.27s overhead: -139.43s
+(38/99)  79% - killtime: 171.71s runtime: 33.28s overhead: -138.42s
+(41/99)  80% - killtime: 184.03s runtime: 34.29s overhead: -149.74s
+(44/99)  81% - killtime: 195.63s runtime: 35.30s overhead: -160.33s
+(44/99)  81% - killtime: 195.63s runtime: 36.31s overhead: -159.33s
+(44/99)  81% - killtime: 195.63s runtime: 37.31s overhead: -158.32s
+(46/99)  80% - killtime: 206.66s runtime: 38.32s overhead: -168.34s
+(46/99)  76% - killtime: 217.97s runtime: 39.33s overhead: -178.65s
+(46/99)  76% - killtime: 217.97s runtime: 40.33s overhead: -177.64s
+(46/99)  75% - killtime: 221.72s runtime: 41.34s overhead: -180.38s
+(50/99)  76% - killtime: 235.68s runtime: 42.34s overhead: -193.34s
+(51/99)  77% - killtime: 239.21s runtime: 43.35s overhead: -195.85s
+(51/99)  77% - killtime: 239.21s runtime: 44.36s overhead: -194.85s
+(53/99)  77% - killtime: 246.10s runtime: 45.37s overhead: -200.73s
+(53/99)  74% - killtime: 257.73s runtime: 46.39s overhead: -211.35s
+(53/99)  73% - killtime: 261.44s runtime: 47.39s overhead: -214.05s
+(53/99)  73% - killtime: 261.44s runtime: 48.40s overhead: -213.03s
+(55/99)  73% - killtime: 271.98s runtime: 49.41s overhead: -222.57s
+(56/99)  72% - killtime: 279.21s runtime: 50.42s overhead: -228.79s
+(56/99)  71% - killtime: 282.94s runtime: 51.43s overhead: -231.52s
+(56/99)  71% - killtime: 282.94s runtime: 52.43s overhead: -230.52s
+(59/99)  72% - killtime: 293.60s runtime: 53.44s overhead: -240.17s
+(62/99)  73% - killtime: 304.24s runtime: 54.44s overhead: -249.80s
+(62/99)  73% - killtime: 304.24s runtime: 55.45s overhead: -248.79s
+(63/99)  73% - killtime: 311.21s runtime: 56.46s overhead: -254.75s
+(64/99)  72% - killtime: 318.20s runtime: 57.47s overhead: -260.73s
+(65/99)  72% - killtime: 325.37s runtime: 58.48s overhead: -266.89s
+(65/99)  72% - killtime: 325.37s runtime: 59.49s overhead: -265.89s
+(68/99)  73% - killtime: 335.78s runtime: 60.49s overhead: -275.29s
+(71/99)  73% - killtime: 346.07s runtime: 61.50s overhead: -284.57s
+(71/99)  73% - killtime: 346.07s runtime: 62.51s overhead: -283.56s
+(73/99)  73% - killtime: 354.33s runtime: 63.52s overhead: -290.81s
+Export::ActivityExporter#activities:/Users/tj/projects/AOT/app/export/activity_exporter.rb:31
+- rspec:0:./spec/export/activity_exporter_spec.rb:36/Export::ActivityExporter#export real rm exports
+evil:Export::ActivityExporter#activities:/Users/tj/projects/AOT/app/export/activity_exporter.rb:31:6c1e2
+@@ -1,6 +1,6 @@
+ def activities(rm)
+   collection = rm.activities
+-  exporter.export(collection, EXPORT_KEYS, SKIP_AT | [:scorecard_id])
++  exporter.export(collection, EXPORT_KEYS, SKIP_AT)
+   ReviewDetailExporter.new(self).export(collection)
+ end
+-----------------------
+evil:Export::ActivityExporter#activities:/Users/tj/projects/AOT/app/export/activity_exporter.rb:31:775de
+@@ -1,6 +1,6 @@
+ def activities(rm)
+   collection = rm.activities
+-  exporter.export(collection, EXPORT_KEYS, SKIP_AT | [:scorecard_id])
++  exporter.export(collection, EXPORT_KEYS, [:scorecard_id])
+   ReviewDetailExporter.new(self).export(collection)
+ end
+-----------------------
+evil:Export::ActivityExporter#activities:/Users/tj/projects/AOT/app/export/activity_exporter.rb:31:5ad30
+@@ -1,6 +1,6 @@
+ def activities(rm)
+   collection = rm.activities
+-  exporter.export(collection, EXPORT_KEYS, SKIP_AT | [:scorecard_id])
++  exporter.export(collection, EXPORT_KEYS, SKIP_AT | [])
+   ReviewDetailExporter.new(self).export(collection)
+ end
+-----------------------
+evil:Export::ActivityExporter#activities:/Users/tj/projects/AOT/app/export/activity_exporter.rb:31:422df
+@@ -1,6 +1,6 @@
+ def activities(rm)
+   collection = rm.activities
+-  exporter.export(collection, EXPORT_KEYS, SKIP_AT | [:scorecard_id])
++  exporter.export(collection, EXPORT_KEYS, SKIP_AT | [nil])
+   ReviewDetailExporter.new(self).export(collection)
+ end
+-----------------------
+evil:Export::ActivityExporter#activities:/Users/tj/projects/AOT/app/export/activity_exporter.rb:31:b7129
+@@ -1,6 +1,6 @@
+ def activities(rm)
+   collection = rm.activities
+-  exporter.export(collection, EXPORT_KEYS, SKIP_AT | [:scorecard_id])
++  exporter.export(collection, EXPORT_KEYS, SKIP_AT | [self])
+   ReviewDetailExporter.new(self).export(collection)
+ end
+-----------------------
+evil:Export::ActivityExporter#activities:/Users/tj/projects/AOT/app/export/activity_exporter.rb:31:4d277
+@@ -1,6 +1,6 @@
+ def activities(rm)
+   collection = rm.activities
+-  exporter.export(collection, EXPORT_KEYS, SKIP_AT | [:scorecard_id])
++  exporter.export(collection, EXPORT_KEYS, SKIP_AT | [:scorecard_id__mutant__])
+   ReviewDetailExporter.new(self).export(collection)
+ end
+-----------------------
+evil:Export::ActivityExporter#activities:/Users/tj/projects/AOT/app/export/activity_exporter.rb:31:fc1e2
+@@ -1,6 +1,6 @@
+ def activities(rm)
+   collection = rm.activities
+   exporter.export(collection, EXPORT_KEYS, SKIP_AT | [:scorecard_id])
+-  ReviewDetailExporter.new(self).export(collection)
++  nil
+ end
+-----------------------
+evil:Export::ActivityExporter#activities:/Users/tj/projects/AOT/app/export/activity_exporter.rb:31:817a9
+@@ -1,6 +1,6 @@
+ def activities(rm)
+   collection = rm.activities
+   exporter.export(collection, EXPORT_KEYS, SKIP_AT | [:scorecard_id])
+-  ReviewDetailExporter.new(self).export(collection)
++  self
+ end
+-----------------------
+evil:Export::ActivityExporter#activities:/Users/tj/projects/AOT/app/export/activity_exporter.rb:31:af8dc
+@@ -1,6 +1,6 @@
+ def activities(rm)
+   collection = rm.activities
+   exporter.export(collection, EXPORT_KEYS, SKIP_AT | [:scorecard_id])
+-  ReviewDetailExporter.new(self).export(collection)
++  ReviewDetailExporter.new(self)
+ end
+-----------------------
+evil:Export::ActivityExporter#activities:/Users/tj/projects/AOT/app/export/activity_exporter.rb:31:de7b7
+@@ -1,6 +1,6 @@
+ def activities(rm)
+   collection = rm.activities
+   exporter.export(collection, EXPORT_KEYS, SKIP_AT | [:scorecard_id])
+-  ReviewDetailExporter.new(self).export(collection)
++  collection
+ end
+-----------------------
+Export::ActivityExporter#activity_owners:/Users/tj/projects/AOT/app/export/activity_exporter.rb:40
+- rspec:0:./spec/export/activity_exporter_spec.rb:36/Export::ActivityExporter#export real rm exports
+evil:Export::ActivityExporter#activity_owners:/Users/tj/projects/AOT/app/export/activity_exporter.rb:40:aec29
+@@ -1,4 +1,3 @@
+ def activity_owners(rm)
+-  PersonExporter.new(context).export_where(rm.activities.pluck(:owner_id))
+ end
+-----------------------
+evil:Export::ActivityExporter#activity_owners:/Users/tj/projects/AOT/app/export/activity_exporter.rb:40:14416
+@@ -1,4 +1,4 @@
+ def activity_owners(rm)
+-  PersonExporter.new(context).export_where(rm.activities.pluck(:owner_id))
++  self
+ end
+-----------------------
+evil:Export::ActivityExporter#activity_owners:/Users/tj/projects/AOT/app/export/activity_exporter.rb:40:91329
+@@ -1,4 +1,4 @@
+ def activity_owners(rm)
+-  PersonExporter.new(context).export_where(rm.activities.pluck(:owner_id))
++  nil
+ end
+-----------------------
+evil:Export::ActivityExporter#activity_owners:/Users/tj/projects/AOT/app/export/activity_exporter.rb:40:a3125
+@@ -1,4 +1,4 @@
+ def activity_owners(rm)
+-  PersonExporter.new(context).export_where(rm.activities.pluck(:owner_id))
++  PersonExporter.new(context)
+ end
+-----------------------
+evil:Export::ActivityExporter#activity_owners:/Users/tj/projects/AOT/app/export/activity_exporter.rb:40:a16e7
+@@ -1,4 +1,4 @@
+ def activity_owners(rm)
+-  PersonExporter.new(context).export_where(rm.activities.pluck(:owner_id))
++  rm.activities.pluck(:owner_id)
+ end
+-----------------------
+evil:Export::ActivityExporter#activity_owners:/Users/tj/projects/AOT/app/export/activity_exporter.rb:40:6a151
+@@ -1,4 +1,4 @@
+ def activity_owners(rm)
+-  PersonExporter.new(context).export_where(rm.activities.pluck(:owner_id))
++  PersonExporter.new(self).export_where(rm.activities.pluck(:owner_id))
+ end
+-----------------------
+evil:Export::ActivityExporter#activity_owners:/Users/tj/projects/AOT/app/export/activity_exporter.rb:40:d1b93
+@@ -1,4 +1,4 @@
+ def activity_owners(rm)
+-  PersonExporter.new(context).export_where(rm.activities.pluck(:owner_id))
++  PersonExporter.new(context).export_where(nil)
+ end
+-----------------------
+evil:Export::ActivityExporter#activity_owners:/Users/tj/projects/AOT/app/export/activity_exporter.rb:40:a6f15
+@@ -1,4 +1,4 @@
+ def activity_owners(rm)
+-  PersonExporter.new(context).export_where(rm.activities.pluck(:owner_id))
++  PersonExporter.new(context).export_where(self)
+ end
+-----------------------
+evil:Export::ActivityExporter#activity_owners:/Users/tj/projects/AOT/app/export/activity_exporter.rb:40:1a8dd
+@@ -1,4 +1,4 @@
+ def activity_owners(rm)
+-  PersonExporter.new(context).export_where(rm.activities.pluck(:owner_id))
++  PersonExporter.new(context).export_where(rm.activities)
+ end
+-----------------------
+evil:Export::ActivityExporter#activity_owners:/Users/tj/projects/AOT/app/export/activity_exporter.rb:40:e17e8
+@@ -1,4 +1,4 @@
+ def activity_owners(rm)
+-  PersonExporter.new(context).export_where(rm.activities.pluck(:owner_id))
++  PersonExporter.new(context).export_where(:owner_id)
+ end
+-----------------------
+evil:Export::ActivityExporter#activity_owners:/Users/tj/projects/AOT/app/export/activity_exporter.rb:40:830c4
+@@ -1,4 +1,4 @@
+ def activity_owners(rm)
+-  PersonExporter.new(context).export_where(rm.activities.pluck(:owner_id))
++  PersonExporter.new(context).export_where(rm.activities.pluck)
+ end
+-----------------------
+evil:Export::ActivityExporter#activity_owners:/Users/tj/projects/AOT/app/export/activity_exporter.rb:40:b2da4
+@@ -1,4 +1,4 @@
+ def activity_owners(rm)
+-  PersonExporter.new(context).export_where(rm.activities.pluck(:owner_id))
++  PersonExporter.new(context).export_where(rm.activities.pluck(nil))
+ end
+-----------------------
+Export::ActivityExporter#export:/Users/tj/projects/AOT/app/export/activity_exporter.rb:24
+- rspec:0:./spec/export/activity_exporter_spec.rb:36/Export::ActivityExporter#export real rm exports
+evil:Export::ActivityExporter#export:/Users/tj/projects/AOT/app/export/activity_exporter.rb:24:6696f
+@@ -1,5 +1,5 @@
+ def export(rm)
+-  activity_owners(rm)
++  nil
+   activities(rm)
+ end
+-----------------------
+evil:Export::ActivityExporter#export:/Users/tj/projects/AOT/app/export/activity_exporter.rb:24:82b4c
+@@ -1,5 +1,5 @@
+ def export(rm)
+-  activity_owners(rm)
++  self
+   activities(rm)
+ end
+-----------------------
+evil:Export::ActivityExporter#export:/Users/tj/projects/AOT/app/export/activity_exporter.rb:24:58691
+@@ -1,5 +1,5 @@
+ def export(rm)
+-  activity_owners(rm)
++  rm
+   activities(rm)
+ end
+-----------------------
+evil:Export::ActivityExporter#export:/Users/tj/projects/AOT/app/export/activity_exporter.rb:24:6c877
+@@ -1,5 +1,4 @@
+ def export(rm)
+-  activity_owners(rm)
+   activities(rm)
+ end
+-----------------------
+Mutant configuration:
+Matcher:         #<Mutant::Matcher::Config match_expressions: [Export::ActivityExporter]>
+Integration:     Mutant::Integration::Rspec
+Jobs:            6
+Includes:        []
+Requires:        ["./config/environment.rb"]
+Subjects:        3
+Mutations:       99
+Results:         99
+Kills:           73
+Alive:           26
+Runtime:         63.52s
+Killtime:        354.33s
+Overhead:        -82.07%
+Mutations/s:     1.56
+Coverage:        73.74%
