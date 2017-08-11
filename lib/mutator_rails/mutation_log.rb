@@ -28,7 +28,7 @@ module MutatorRails
     def pct
       return 100 unless total.positive?
 
-      (100.0 * kills.to_f) / total
+      ((100.0 * kills.to_f) / total).round(3)
     end
 
     private
@@ -66,7 +66,7 @@ module MutatorRails
     def mutations_per_sec
       return 0 unless runtime.positive?
 
-      total.to_f / runtime
+      (total.to_f / runtime).round(3)
     end
 
 
