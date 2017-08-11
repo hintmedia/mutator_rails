@@ -3,7 +3,7 @@
 if Rails.env.development? || Rails.env.test?
 
   namespace :mutator do
-    require Rails.root('config/environment.rb')
+    require Rails.root.join('config/environment.rb')
 
     desc 'Run mutation analysis on the mutant logs'
     task :analyze do
