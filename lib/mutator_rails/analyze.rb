@@ -22,7 +22,7 @@ module MutatorRails
       end
       return if list.blank?
 
-      content = list.sort.map(&:to_s).join('\n')
+      content = list.sort.map(&:to_s).join("\n")
 
       File.write(CONFIG.analysis_csv, MutationLog::HEADER + content)
     end
