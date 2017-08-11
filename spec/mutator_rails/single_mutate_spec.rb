@@ -32,7 +32,8 @@ RSpec.describe MutatorRails::SingleMutate do
   end
   describe '#md5_spec' do
     it 'returns md5 hash of spec file' do
-      expect(object.md5_spec).to eql('0e7f4802f58bbbb186be8b44a74a33e3')
+      expect(object.md5_spec)
+        .to eql('0e7f4802f58bbbb186be8b44a74a33e3')
     end
   end
 
@@ -51,21 +52,24 @@ RSpec.describe MutatorRails::SingleMutate do
   end
 
   describe '#first_run' do
-    let(:parms) { ['a', 'b'] }
+    let(:parms) { %w[a b] }
     it 'returns log file' do
-      expect(object.first_run(parms)).to eql('SPEC_OPTS="--pattern spec/models/test_spec.rb" RAILS_ENV=test bundle exec mutant a b')
+      expect(object.first_run(parms))
+        .to eql('SPEC_OPTS="--pattern spec/models/test_spec.rb" RAILS_ENV=test bundle exec mutant a b')
     end
   end
 
   describe '#spec_opt' do
     it 'returns log file' do
-      expect(object.spec_opt).to eql('SPEC_OPTS="--pattern spec/models/test_spec.rb" ')
+      expect(object.spec_opt)
+        .to eql('SPEC_OPTS="--pattern spec/models/test_spec.rb" ')
     end
   end
 
   describe '#spec_file' do
     it 'returns log file' do
-      expect(object.spec_file).to eql('spec/models/test_spec.rb')
+      expect(object.spec_file)
+        .to eql('spec/models/test_spec.rb')
     end
   end
 

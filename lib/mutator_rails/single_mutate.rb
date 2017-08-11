@@ -12,7 +12,7 @@ module MutatorRails
 
       parms << '> ' + log
 
-      cmd = first_run( parms)
+      cmd = first_run(parms)
       rerun(cmd)
     end
 
