@@ -19,6 +19,8 @@ module MutatorRails
       def load_configuration
         default_config = YAML.load_file(CONFIG_DEFAULT)
         user_config    = if USER_CONFIG && File.exist?(USER_CONFIG)
+                           puts "user config discovered"
+                           puts USER_CONFIG
                            YAML.load_file(USER_CONFIG)
                          else
                            puts "No user config found"
@@ -26,6 +28,9 @@ module MutatorRails
                            puts CONFIG_DEFAULT
                            {}
                          end
+
+        p default_config
+        p user_config
 
         consolidated = default_config.merge(user_config)
 
