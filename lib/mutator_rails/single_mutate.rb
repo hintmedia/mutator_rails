@@ -21,11 +21,15 @@ module MutatorRails
     end
 
     def log_location
-      path.sub(APP_BASE, CONFIG.logroot).sub('.rb', '_')
+      path.sub(APP_BASE, logroot).sub('.rb', '_')
+    end
+
+    def logroot
+      MutatorRails::Config.configuration.logroot
     end
 
     def log_dir
-      path.dirname.sub(APP_BASE, CONFIG.logroot).tap do |dir|
+      path.dirname.sub(APP_BASE, logroot).tap do |dir|
         FileUtils.mkdir_p(dir)
       end
     end
@@ -85,7 +89,7 @@ module MutatorRails
     end
 
     def exclude_file?
-      CONFIG.exclusions.detect { |exclusion| file =~ exclusion }.present?
+      MutatorRails::Config.configuration.exclusions.detect { |exclusion| file =~ exclusion }.present?
     end
 
     def complete?(log)

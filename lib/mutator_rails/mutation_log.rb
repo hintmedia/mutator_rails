@@ -40,7 +40,11 @@ module MutatorRails
     end
 
     def csv_file
-      Pathname(File.dirname(Pathname(CONFIG.analysis_csv))).realpath
+      Pathname(File.dirname(Pathname(csv))).realpath
+    end
+
+    def csv
+      MutatorRails::Config.configuration.analysis_csv
     end
 
     def alive

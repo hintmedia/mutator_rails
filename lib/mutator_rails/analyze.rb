@@ -10,7 +10,7 @@ module MutatorRails
     def call
       list = []
 
-      Dir.glob(CONFIG.logroot + '**/*.log').each do |target_log|
+      Dir.glob(Config.configuration.logroot + '**/*.log').each do |target_log|
         next unless File.exist?(target_log)
 
         begin

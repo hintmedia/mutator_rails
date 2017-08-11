@@ -7,7 +7,7 @@ RSpec.describe MutatorRails::MutationLog do
   let(:object) { described_class.new(log) }
 
   describe '#call' do
-    let(:expectation) { '\t73\t26\t99\t73.73737373737374\t1.5585642317380353' }
+    let(:expectation) { '\t73\t26\t99\t73.737\t1.559\t63.52' }
     subject { object.to_s }
     it 'processes the all code' do
       expect(subject).to match(expectation)
