@@ -15,7 +15,7 @@ RSpec.describe MutatorRails::SingleMutate do
   describe '#log' do
     it 'returns log file' do
       expect(object.log)
-        .to eql('log/mutant/models/test_5b59da4c36de3f99b9bb689e984f6b5b_0e7f4802f58bbbb186be8b44a74a33e3_0.8.14.log')
+        .to eql('log/mutant/models/test_fdef5a515ce8eff897a72b026aadbaba_0e7f4802f58bbbb186be8b44a74a33e3_0.8.14.log')
     end
   end
 
