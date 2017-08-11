@@ -15,7 +15,7 @@ module MutatorRails
 
         begin
           list << MutationLog.new(target_log)
-        rescue StandardError => se
+        rescue Exception => se
           # skip it
           puts "Error: #{se}"
         end
