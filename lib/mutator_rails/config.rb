@@ -7,7 +7,7 @@ module MutatorRails
 
     PROJECT_ROOT   = Pathname.new(__dir__).parent.parent.expand_path.freeze
     CONFIG_DEFAULT = PROJECT_ROOT.join('config', 'mutator_rails.yml').freeze
-    USER_CONFIG    = ::Rails.root&.join('mutator_rails.yml').freeze
+    USER_CONFIG    = Pathname(Dir.pwd).join('mutator_rails.yml').freeze
 
     private_constant(:CONFIG_DEFAULT, :PROJECT_ROOT)
 
@@ -18,14 +18,9 @@ module MutatorRails
 
       def load_configuration
         default_config = YAML.load_file(CONFIG_DEFAULT)
-        user_config    = if USER_CONFIG && File.exist?(USER_CONFIG)
-                           puts "user config discovered"
-                           puts USER_CONFIG
+        user_config    = if USER_CONFIG && File.exist?(USER_CONFIG.to_s)
                            YAML.load_file(USER_CONFIG)
                          else
-                           puts "No user config found"
-                           puts PROJECT_ROOT
-                           puts CONFIG_DEFAULT
                            {}
                          end
 
