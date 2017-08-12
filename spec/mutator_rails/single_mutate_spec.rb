@@ -73,12 +73,6 @@ RSpec.describe MutatorRails::SingleMutate do
     end
   end
 
-  describe '#exclude_file?' do
-    it 'returns log file' do
-      expect(object.exclude_file?).to be false
-    end
-  end
-
   describe '#complete?' do
     let(:log) { 'spec/test.log' }
     it 'returns log file' do

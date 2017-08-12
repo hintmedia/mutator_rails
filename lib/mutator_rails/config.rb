@@ -24,9 +24,6 @@ module MutatorRails
                            {}
                          end
 
-        p default_config
-        p user_config
-
         consolidated = default_config.merge(user_config)
 
         JSON.parse(consolidated.to_json, object_class: OpenStruct).freeze

@@ -5,8 +5,6 @@ module MutatorRails
     include Concord.new(:file)
 
     def call
-      return if exclude_file?
-
       parms = BASIC_PARMS.dup
       parms << preface(path.basename) + base
 
@@ -24,12 +22,8 @@ module MutatorRails
       path.sub(APP_BASE, logroot).sub('.rb', '_')
     end
 
-    def logroot
-      MutatorRails::Config.configuration.logroot
-    end
-
     def log_dir
-      path.dirname.sub(APP_BASE, logroot).tap do |dir|
+      log_location.dirname.tap do |dir|
         FileUtils.mkdir_p(dir)
       end
     end
@@ -88,10 +82,6 @@ module MutatorRails
       file.sub(APP_BASE, 'spec/').sub('.rb', '_spec.rb')
     end
 
-    def exclude_file?
-      MutatorRails::Config.configuration.exclusions.detect { |exclusion| file =~ exclusion }.present?
-    end
-
     def complete?(log)
       content = File.read(log)
       /Kills:/.match?(content)
@@ -108,6 +98,12 @@ module MutatorRails
       f = cs.join('::')
       f += '::' if f.present?
       f
+    end
+
+    private
+
+    def logroot
+      MutatorRails::Config.configuration.logroot
     end
   end
 end
