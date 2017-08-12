@@ -9,6 +9,7 @@ module MutatorRails
       parms << preface(path.basename) + base
 
       parms << '> ' + log
+      log_dir
 
       cmd = first_run(parms)
       rerun(cmd)
