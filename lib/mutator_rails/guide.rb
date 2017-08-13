@@ -42,7 +42,7 @@ module MutatorRails
     def recreate
       f = File.open(guide_file_name, 'w')
       guides.sort.each do |k, v|
-        f.write(k + SEP + v.join(SEP))
+        f.write("#{k}#{SEP}#{v.join(SEP)}\n")
       end
       f.close
     end
