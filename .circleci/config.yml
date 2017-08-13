@@ -34,4 +34,4 @@ jobs:
       - type: store_test_results
         path: /tmp/test-results
 
-      - run: bundle exec rspec spec/
+      - run: bundle exec rspec spec/  && CODECLIMATE_REPO_TOKEN=06263aaac18bc4e88f284d77e1acff710652cadadd22476767fa3c6cb861bb39 bundle exec codeclimate-test-reporter
