@@ -11,6 +11,7 @@ require 'adamantium'
 require 'concord'
 require 'rails'
 
+require 'mutator_rails/guide'
 require 'mutator_rails/railtie'
 require 'mutator_rails/config'
 require 'mutator_rails/version'
