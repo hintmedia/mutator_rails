@@ -9,13 +9,14 @@ module MutatorRails
 
     def initialize(*)
       excluded_files
+      @guide = Guide.new
     end
 
     def call
       Dir.glob(APP_BASE + '**/*.rb').sort_by { |x| File.size(x) }.each do |file|
         next if exclude?(file)
 
-        SingleMutate.new(file).call
+        SingleMutate.new(guide, file).call
       end
     end
 
@@ -32,5 +33,7 @@ module MutatorRails
     def exclude?(file)
       excluded_files.include?(file)
     end
+
+    attr_reader :guide
   end
 end

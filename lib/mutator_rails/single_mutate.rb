@@ -1,14 +1,16 @@
 # frozen_string_literal: true
 
+require 'open3'
+
 module MutatorRails
   class SingleMutate
-    include Concord.new(:file)
+    include Concord.new(:guide, :file)
 
     def call
       parms = BASIC_PARMS.dup
       parms << preface(path.basename) + base
 
-      parms << '> ' + log
+      parms << '1> ' + log.to_s
       log_dir
 
       cmd = first_run(parms)
@@ -16,11 +18,25 @@ module MutatorRails
     end
 
     def log
-      "#{log_location}#{md5}_#{md5_spec}_#{MUTANT_VERSION}.log"
+      if File.exists?(old_log)
+        # repair - this is one time only
+        guide.update(full_log, code_md5, spec_md5)
+        File.rename(old_log, full_log)
+      end
+      
+      full_log
+    end
+
+    def full_log
+      log_location.to_s + '.log'
+    end
+
+    def old_log
+      "#{log_location}_#{code_md5}_#{spec_md5}_#{MUTANT_VERSION}.log"
     end
 
     def log_location
-      path.sub(APP_BASE, logroot).sub('.rb', '_')
+      path.sub(APP_BASE, logroot).sub('.rb', '')
     end
 
     def log_dir
@@ -29,7 +45,7 @@ module MutatorRails
       end
     end
 
-    def md5_spec
+    def spec_md5
       Digest::MD5.file(spec_file).hexdigest
     end
 
@@ -37,7 +53,7 @@ module MutatorRails
       path.basename.to_s.sub(path.extname, '').camelize
     end
 
-    def md5
+    def code_md5
       Digest::MD5.file(path).hexdigest
     end
 
@@ -55,21 +71,16 @@ module MutatorRails
       cmd2 = cmd.sub('--use', '-j1 --use')
       puts log
       puts "[#{Time.current.iso8601}] #{cmd2}"
-      `#{cmd2}`
+      `#{cmd2}` unless ENV['RACK_ENV'].eql?('test')
     end
 
     def first_run(parms)
       cmd = spec_opt + COMMAND + parms.join(' ')
 
-      if Dir.glob(log).empty? || File.size(log).zero? || !complete?(log)
-        begin
-          File.delete(Dir.glob("#{log_location}*.log").first)
-        rescue
-          nil
-        end
-
+      if !guide.current?(log, code_md5, spec_md5) || !complete?(log)
         puts "[#{Time.current.iso8601}] #{cmd}"
-        `#{cmd}`
+        `#{cmd}` unless ENV['RACK_ENV'].eql?('test')
+        guide.update(log, code_md5, spec_md5)
       end
 
       cmd
@@ -86,6 +97,10 @@ module MutatorRails
     def complete?(log)
       content = File.read(log)
       /Kills:/.match?(content)
+    end
+
+    def log_correct?
+      guide.current?(log, code_md5, spec_md5)
     end
 
     def preface(base)

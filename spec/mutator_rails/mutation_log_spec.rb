@@ -3,7 +3,7 @@
 require 'spec_helper'
 
 RSpec.describe MutatorRails::MutationLog do
-  let(:log) { 'spec/test.log' }
+  let(:log) { 'log/mutant/models/test.log' }
   let(:object) { described_class.new(log) }
 
   describe '#call' do

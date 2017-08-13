@@ -1,5 +1,6 @@
 ---
 logroot: 'log/mutant/'
+guide_file: 'log/mutant/guide.txt'
 analysis_csv: 'log/mutant/analysis.tsv'
 
 exclusions:
