@@ -31,6 +31,10 @@ module MutatorRails
       ((100.0 * kills.to_f) / total).round(3)
     end
 
+    def alive
+      content.match(/Alive:.+?(\d+)$/)[1].to_i rescue 0
+    end
+
     private
 
     attr_reader :content
@@ -45,10 +49,6 @@ module MutatorRails
 
     def csv
       MutatorRails::Config.configuration.analysis_csv
-    end
-
-    def alive
-      content.match(/Alive:.+?(\d+)$/)[1]
     end
 
     def klass
@@ -85,7 +85,7 @@ module MutatorRails
     end
 
     def <=>(other)
-      pct <=> other.pct
+      [pct, -alive] <=> [other.pct, -other.alive]
     end
   end
 end

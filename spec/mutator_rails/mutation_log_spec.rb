@@ -15,4 +15,16 @@ RSpec.describe MutatorRails::MutationLog do
       expect(subject).to match('"Export::ActivityExporter"')
     end
   end
+
+  describe '#pct' do
+    it 'has a pct' do
+      expect(object.pct).to equal 73.737
+    end
+  end
+  
+  describe '#alive' do
+    it 'has a alive count' do
+      expect(object.alive).to equal 26
+    end
+  end
 end
