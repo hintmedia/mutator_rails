@@ -5,7 +5,7 @@ require 'spec_helper'
 RSpec.describe MutatorRails::Guide do
   let(:object) { described_class.new }
   let(:guide_file) { 'log/mutant/guide.txt' }
-  let(:log) { 'log_file_name.log'}
+  let(:log) { 'log/mutant/models/test.log'}
   let(:code_md5) { Digest::MD5.hexdigest('abc') }
   let(:spec_md5) { Digest::MD5.hexdigest('def') }
   before do
