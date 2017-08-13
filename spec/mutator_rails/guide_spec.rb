@@ -8,6 +8,9 @@ RSpec.describe MutatorRails::Guide do
   let(:log) { 'log_file_name.log'}
   let(:code_md5) { Digest::MD5.hexdigest('abc') }
   let(:spec_md5) { Digest::MD5.hexdigest('def') }
+  before do
+    File.delete(guide_file)
+  end
 
   describe '#current?' do
     it 'processes the log files' do
@@ -20,10 +23,6 @@ RSpec.describe MutatorRails::Guide do
   end
 
   describe '#update' do
-    before do
-      File.delete(guide_file)
-    end
-    
     it 'processes the log files' do
       object.update(log, code_md5, spec_md5)
 

@@ -12,7 +12,7 @@ module MutatorRails
     def current?(log, code_md5, spec_md5)
       File.exist?(log) &&
         File.size(log).positive?
-        guides[log].present? &&
+      guides[log].present? &&
         guides[log].eql?([code_md5, spec_md5, MUTANT_VERSION])
     end
 
@@ -31,7 +31,7 @@ module MutatorRails
 
     def load
       @guides = {}
-      File.readlines(guide_file_name) do |line|
+      File.readlines(guide_file_name).each do |line|
         log, code_md5, spec_md5, mutant_version = line.split(SEP)
         guides[log]                             = [code_md5, spec_md5, mutant_version]
       end
@@ -40,7 +40,7 @@ module MutatorRails
     def recreate
       f = File.open(guide_file_name, 'w')
       guides.sort.each do |k, v|
-        f.write("#{k}#{SEP}#{v.join(SEP)}\n")
+        f.write("#{k}#{SEP}#{v.join(SEP)}\n") if k.present?
       end
       f.close
     end
