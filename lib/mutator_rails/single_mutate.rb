@@ -65,7 +65,7 @@ module MutatorRails
       return unless File.exist?(log)
 
       content = File.read(log)
-      return unless content.match?(/Failures:/)
+      return unless /Failures:/.match?(content)
 
       FileUtils.cp(log, '/tmp')
       cmd2 = cmd.sub('--use', '-j1 --use')

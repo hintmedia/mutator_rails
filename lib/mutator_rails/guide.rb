@@ -11,8 +11,8 @@ module MutatorRails
 
     def current?(log, code_md5, spec_md5)
       File.exist?(log) &&
-        File.size(log).positive?
-      guides[log].present? &&
+        File.size(log).positive? &&
+        guides[log].present? &&
         guides[log].eql?([code_md5, spec_md5, MUTANT_VERSION])
     end
 
