@@ -21,7 +21,7 @@ require 'mutator_rails/full_mutate'
 
 # Mutator Rails' core functionality
 module MutatorRails
-  MUTANT_VERSION = `bundle exec mutant --version`.strip.split('-').last
+  MUTANT_VERSION = `bundle exec mutant --version`.strip.split('-').last.strip
 
   COMMAND     = 'RAILS_ENV=test bundle exec mutant '
   BASIC_PARMS = ['-r./config/environment.rb', '--use rspec'].freeze
