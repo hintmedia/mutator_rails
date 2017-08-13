@@ -10,7 +10,7 @@ module MutatorRails
     end
 
     def current?(log, code_md5, spec_md5)
-      p guides[log]
+      # p guides[log]
       File.exist?(log) &&
         File.size(log).positive? &&
         guides[log].present? &&
