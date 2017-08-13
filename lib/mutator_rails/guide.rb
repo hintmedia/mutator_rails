@@ -10,7 +10,7 @@ module MutatorRails
     end
 
     def current?(log, code_md5, spec_md5)
-      # p guides[log]
+      p guides[log]
       File.exist?(log) &&
         File.size(log).positive? &&
         guides[log].present? &&
@@ -33,7 +33,7 @@ module MutatorRails
     def load
       @guides = {}
       File.readlines(guide_file_name).each do |line|
-        log, code_md5, spec_md5, mutant_version = line.split(SEP)
+        log, code_md5, spec_md5, mutant_version = line.strip.split(SEP)
         guides[log]                             = [code_md5, spec_md5, mutant_version]
       end
     end
