@@ -1,0 +1,2 @@
+log	kills	alive	total	pct killed	mutations per sec	runtime
+=HYPERLINK("models/test.log","Export::ActivityExporter")	73	26	99	73.737	1.559	63.52
