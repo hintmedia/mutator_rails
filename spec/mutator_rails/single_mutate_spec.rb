@@ -92,8 +92,13 @@ RSpec.describe MutatorRails::SingleMutate do
 
   describe '#complete?' do
     let(:log) { 'log/mutant/models/test.log' }
+    let(:file2) { __FILE__ }
     it 'returns completion indication' do
       expect(object.complete?(log)).to be true
+    end
+
+    it 'returns completion indication' do
+      expect(object.complete?(file2)).to be false
     end
   end
 

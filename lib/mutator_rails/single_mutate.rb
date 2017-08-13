@@ -96,7 +96,7 @@ module MutatorRails
 
     def complete?(log)
       content = File.read(log)
-      /Kills:/.match?(content)
+      /^Subjects: /.match?(content)
     end
 
     def log_correct?
