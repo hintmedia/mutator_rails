@@ -18,7 +18,7 @@ module MutatorRails
     end
 
     def log
-      if File.exists?(old_log)
+      if File.exist?(old_log)
         # repair - this is one time only
         guide.update(full_log, code_md5, spec_md5)
         File.rename(old_log, full_log)
