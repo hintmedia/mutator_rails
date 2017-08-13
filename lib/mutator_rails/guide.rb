@@ -31,12 +31,10 @@ module MutatorRails
 
     def load
       @guides = {}
-      f       = File.new(guide_file_name)
-      f.readlines do |line|
+      File.readlines(guide_file_name) do |line|
         log, code_md5, spec_md5, mutant_version = line.split(SEP)
         guides[log]                             = [code_md5, spec_md5, mutant_version]
       end
-
     end
 
     def recreate
