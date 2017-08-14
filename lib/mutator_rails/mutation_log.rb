@@ -25,6 +25,12 @@ module MutatorRails
       ''
     end
 
+    def details
+      [klass, kills, alive, total, pct, mutations_per_sec, runtime, failure, j1]
+    rescue
+      ''
+    end
+
     def pct
       return 100 unless total.positive?
 
@@ -33,6 +39,10 @@ module MutatorRails
 
     def alive
       content.match(/Alive:.+?(\d+)$/)[1].to_i rescue 0
+    end
+
+    def j1
+      content.match(/Jobs:.+?(\d+)$/)[1].to_i.eql(1) rescue false
     end
 
     private
@@ -53,6 +63,10 @@ module MutatorRails
 
     def klass
       content.match(/match_expressions: \[(.+?)\]>$/)[1]
+    end
+
+    def failure
+      /Failures:/ === content
     end
 
     def absolute_file_path
@@ -83,6 +97,8 @@ module MutatorRails
     def total
       alive.to_i + kills.to_i
     end
+
+
 
     def <=>(other)
       [pct, -alive] <=> [other.pct, -other.alive]

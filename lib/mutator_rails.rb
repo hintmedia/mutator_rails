@@ -17,6 +17,7 @@ require 'mutator_rails/config'
 require 'mutator_rails/version'
 
 require 'mutator_rails/analyze'
+require 'mutator_rails/statistics'
 require 'mutator_rails/full_mutate'
 
 # Mutator Rails' core functionality
