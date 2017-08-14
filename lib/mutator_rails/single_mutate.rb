@@ -65,7 +65,7 @@ module MutatorRails
       return unless File.exist?(log)
 
       content = File.read(log)
-      return unless /Failures:/.match?(content)
+      return unless /Failures:/ === content
 
       FileUtils.cp(log, '/tmp')
       cmd2 = cmd.sub('--use', '-j1 --use')
@@ -96,7 +96,7 @@ module MutatorRails
 
     def complete?(log)
       content = File.read(log)
-      /^Subjects: /.match?(content)
+      /^Subjects: / === content
     end
 
     def log_correct?
