@@ -84,7 +84,7 @@ module MutatorRails
     def top_10_alive
       stats << ''
       stats << "The following modules had most alive mutations (top 10):"
-      content.sort_by{ |d| -d[2] }.take(10).each do |detail|
+      content.sort_by { |d| -d[2] }.take(10).each do |detail|
         alive = detail[2]
         if alive.positive?
           stats << " . #{detail[0]} (#{alive})"
@@ -95,7 +95,7 @@ module MutatorRails
     def top_10_longest
       stats << ''
       stats << "The following modules had longest mutation time (top 10):"
-      content.sort_by{ |d| -d[6] }.take(10).each do |detail|
+      content.sort_by { |d| -d[6] }.take(10).each do |detail|
         time = detail[6]
         if time.positive?
           stats << " . #{detail[0]} (#{humanize(time.to_i)})"
@@ -106,7 +106,7 @@ module MutatorRails
     def top_10_total_mutations
       stats << ''
       stats << "The following modules had largest mutation count (top 10):"
-      content.sort_by{ |d| -d[3] }.take(10).each do |detail|
+      content.sort_by { |d| -d[3] }.take(10).each do |detail|
         cnt = detail[3]
         if cnt.positive?
           stats << " . #{detail[0]} (#{cnt})"
