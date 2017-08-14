@@ -64,7 +64,7 @@ module MutatorRails
     end
 
     def kills
-      content.match(/Kills:.+?(\d+)$/)[1]
+      content.match(/Kills:.+?(\d+)$/)[1] rescue 0
     end
 
     def mutations_per_sec
