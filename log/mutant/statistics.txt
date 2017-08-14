@@ -1,5 +1,5 @@
 
-1 module(s) were mutated in 1 minutes 3 seconds
+1 module(s) were mutated in 1 minute 3 seconds
 for a total of 99 mutations tested @ 1.56/sec average
 which left 26 mutations alive (26.3%)
 and 73 killed (73.7%)
@@ -10,7 +10,7 @@ The following modules had most alive mutations (top 10):
  . Export::ActivityExporter (26)
 
 The following modules had longest mutation time (top 10):
- . Export::ActivityExporter (1 minutes 3 seconds)
+ . Export::ActivityExporter (1 minute 3 seconds)
 
 The following modules had largest mutation count (top 10):
  . Export::ActivityExporter (99)

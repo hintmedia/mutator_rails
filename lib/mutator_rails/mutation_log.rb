@@ -20,15 +20,21 @@ module MutatorRails
     end
 
     def to_s
+      return '' unless complete?
+
       [link, kills, alive, total, pct, mutations_per_sec, runtime].join("\t")
     rescue
       ''
     end
 
+    def complete?
+      /^Subjects: / === content
+    end
+
     def details
       [klass, kills, alive, total, pct, mutations_per_sec, runtime, failure, j1]
     rescue
-      ''
+      []
     end
 
     def pct
