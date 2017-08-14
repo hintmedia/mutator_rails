@@ -7,8 +7,6 @@ module MutatorRails
     include Procto.call
     include Adamantium::Flat
 
-    WITH_STATS = true
-
     def call
       list = []
 
@@ -16,15 +14,16 @@ module MutatorRails
         next unless File.exist?(target_log)
 
         begin
-          list << MutationLog.new(target_log, WITH_STATS)
+          list << MutationLog.new(target_log)
         rescue Exception => se
           # skip it
           puts "Error: #{se}"
         end
       end
-      return if list.blank?
 
-      content = list.sort.map(&:to_s).join("\n")
+      content = list.map(&:details)
+
+      stats = []
 
       puts " ... storing #{stats_file}"
       File.write(stats,

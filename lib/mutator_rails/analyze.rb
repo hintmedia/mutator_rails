@@ -7,8 +7,6 @@ module MutatorRails
     include Procto.call
     include Adamantium::Flat
 
-    WITHOUT_STATS = false
-
     def call
       list = []
 
@@ -16,7 +14,7 @@ module MutatorRails
         next unless File.exist?(target_log)
 
         begin
-          list << MutationLog.new(target_log, WITHOUT_STATS)
+          list << MutationLog.new(target_log)
         rescue Exception => se
           # skip it
           puts "Error: #{se}"

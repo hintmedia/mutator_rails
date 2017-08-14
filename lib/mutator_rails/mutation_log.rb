@@ -3,7 +3,7 @@
 module MutatorRails
   class MutationLog
     include Adamantium::Flat
-    include Concord.new(:target_log, :with_stats)
+    include Concord.new(:target_log)
 
     HEADER = (['log',
                'kills',
@@ -21,6 +21,12 @@ module MutatorRails
 
     def to_s
       [link, kills, alive, total, pct, mutations_per_sec, runtime].join("\t")
+    rescue
+      ''
+    end
+
+    def details
+      [klass, kills, alive, total, pct, mutations_per_sec, runtime]
     rescue
       ''
     end
@@ -83,6 +89,8 @@ module MutatorRails
     def total
       alive.to_i + kills.to_i
     end
+
+
 
     def <=>(other)
       [pct, -alive] <=> [other.pct, -other.alive]
