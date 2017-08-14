@@ -5,7 +5,6 @@ require 'mutator_rails/mutation_log'
 module MutatorRails
   class Statistics
     include Procto.call
-    include Adamantium::Flat
 
     def call
       list = []
@@ -21,19 +20,20 @@ module MutatorRails
         end
       end
 
-      content = list.map(&:details)
+      @content = list.map(&:details)
 
-      stats = []
+      @stats = []
 
       puts " ... storing #{stats_file}"
-      File.write(stats,
-                 MutationLog::HEADER + content)
+      File.write(stats_file, stats.join("\n"))
     end
 
     private
 
-    def csv
+    def stats_file
       MutatorRails::Config.configuration.statistics
     end
+
+    attr_reader :stats, :content
   end
 end
