@@ -3,7 +3,7 @@
 module MutatorRails
   class MutationLog
     include Adamantium::Flat
-    include Concord.new(:target_log)
+    include Concord.new(:target_log, :with_stats)
 
     HEADER = (['log',
                'kills',

@@ -4,7 +4,7 @@ require 'spec_helper'
 
 RSpec.describe MutatorRails::MutationLog do
   let(:log) { 'log/mutant/models/test.log' }
-  let(:object) { described_class.new(log) }
+  let(:object) { described_class.new(log, false) }
 
   describe '#call' do
     let(:expectation) { '\t73\t26\t99\t73.737\t1.559\t63.52' }

@@ -3,11 +3,11 @@
 require 'mutator_rails/mutation_log'
 
 module MutatorRails
-  class Analyze
+  class Statistics
     include Procto.call
     include Adamantium::Flat
 
-    WITHOUT_STATS = false
+    WITH_STATS = true
 
     def call
       list = []
@@ -16,7 +16,7 @@ module MutatorRails
         next unless File.exist?(target_log)
 
         begin
-          list << MutationLog.new(target_log, WITHOUT_STATS)
+          list << MutationLog.new(target_log, WITH_STATS)
         rescue Exception => se
           # skip it
           puts "Error: #{se}"
@@ -26,15 +26,15 @@ module MutatorRails
 
       content = list.sort.map(&:to_s).join("\n")
 
-      puts " ... storing #{csv}"
-      File.write(csv,
+      puts " ... storing #{stats_file}"
+      File.write(stats,
                  MutationLog::HEADER + content)
     end
 
     private
 
     def csv
-      MutatorRails::Config.configuration.analysis_csv
+      MutatorRails::Config.configuration.statistics
     end
   end
 end
