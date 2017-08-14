@@ -6,7 +6,7 @@ if Rails.env.development? || Rails.env.test?
     require Rails.root.join('config/environment.rb')
 
     desc 'Run mutation statistics on the mutant logs'
-    task :analyze do
+    task :statistics do
       MutatorRails::Statistics.call
     end
   end
