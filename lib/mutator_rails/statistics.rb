@@ -97,7 +97,7 @@ module MutatorRails
       stats << "The following modules had longest mutation time (top 10):"
       content.sort_by { |d| -d[6] }.take(10).each do |detail|
         time = detail[6]
-        if time.positive?
+        if time&.positive?
           stats << " . #{detail[0]} (#{humanize(time.to_i)})"
         end
       end
@@ -108,7 +108,7 @@ module MutatorRails
       stats << "The following modules had largest mutation count (top 10):"
       content.sort_by { |d| -d[3] }.take(10).each do |detail|
         cnt = detail[3]
-        if cnt.positive?
+        if cnt&.positive?
           stats << " . #{detail[0]} (#{cnt})"
         end
       end
@@ -130,7 +130,7 @@ module MutatorRails
       tot = 0
       content.each do |detail|
         alive = detail[2]
-        tot   += 1 if alive.zero?
+        tot   += 1 if alive&.zero?
       end
       tot
     end
@@ -143,7 +143,7 @@ module MutatorRails
       tot = 0
       content.each do |detail|
         alive = detail[2]
-        tot   += alive
+        tot   += alive.to_i
       end
       tot
     end
@@ -156,7 +156,7 @@ module MutatorRails
       tot = 0.0
       content.each do |detail|
         runtime = detail[6]
-        tot     += runtime
+        tot     += runtime if runtime
       end
       tot
     end
@@ -169,7 +169,7 @@ module MutatorRails
       [[60, :seconds], [60, :minutes], [24, :hours], [1000, :days]].map { |count, name|
         if secs > 0
           secs, n = secs.divmod(count)
-          "#{n.to_i} #{name}"
+          "#{n.to_i} #{n.to_i.eql?(1) ? name.to_s.chop : name}"
         end
       }.compact.reverse.join(' ')
     end
@@ -179,7 +179,7 @@ module MutatorRails
       tot = 0
       content.each do |detail|
         total = detail[3]
-        tot   += total
+        tot   += total.to_i
       end
       tot
     end
