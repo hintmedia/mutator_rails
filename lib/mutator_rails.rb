@@ -15,6 +15,7 @@ require 'mutator_rails/guide'
 require 'mutator_rails/railtie'
 require 'mutator_rails/config'
 require 'mutator_rails/version'
+require 'mutator_rails/list_maker'
 
 require 'mutator_rails/analyze'
 require 'mutator_rails/cleanup'

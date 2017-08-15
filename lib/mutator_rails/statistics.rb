@@ -7,20 +7,7 @@ module MutatorRails
     include Procto.call
 
     def call
-      list = []
-
-      Dir.glob(Config.configuration.logroot + '**/*.log').each do |target_log|
-        next unless File.exist?(target_log)
-
-        begin
-          list << MutationLog.new(target_log)
-        rescue Exception => se
-          # skip it
-          puts "Error: #{se}"
-        end
-      end
-
-      @content = list.map(&:details)
+      @content = ListMaker.new.make_list.map(&:details)
 
       @stats = []
       total_mutations

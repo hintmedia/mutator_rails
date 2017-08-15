@@ -8,18 +8,7 @@ module MutatorRails
     include Adamantium::Flat
 
     def call
-      list = []
-
-      Dir.glob(Config.configuration.logroot + '**/*.log').each do |target_log|
-        next unless File.exist?(target_log)
-
-        begin
-          list << MutationLog.new(target_log)
-        rescue Exception => se
-          # skip it
-          puts "Error: #{se}"
-        end
-      end
+      list = ListMaker.new.make_list
       return if list.blank?
 
       content = list.sort.map(&:to_s).join("\n")
