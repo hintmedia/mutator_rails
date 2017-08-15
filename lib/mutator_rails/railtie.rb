@@ -11,6 +11,7 @@ module MutatorRails
       load 'tasks/mutator/mutator.rake'
       load 'tasks/mutator/analyze.rake'
       load 'tasks/mutator/statistics.rake'
+      load 'tasks/mutator/cleanup.rake'
       load 'tasks/mutator/mutate_files.rake'
     end
   end
