@@ -5,6 +5,8 @@ module MutatorRails
 
     SEP = ' | '.freeze
 
+    attr_reader :guides
+
     def initialize(*)
       preset_file
     end
@@ -19,6 +21,11 @@ module MutatorRails
 
     def update(log, code_md5, spec_md5)
       guides[log] = [code_md5, spec_md5, MUTANT_VERSION]
+      recreate
+    end
+
+    def remove
+      guide.delete(log)
       recreate
     end
 
@@ -57,6 +64,6 @@ module MutatorRails
       end
     end
 
-    attr_reader :guides
+
   end
 end
