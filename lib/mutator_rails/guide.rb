@@ -24,7 +24,7 @@ module MutatorRails
       recreate
     end
 
-    def remove
+    def remove(log)
       guide.delete(log)
       recreate
     end
