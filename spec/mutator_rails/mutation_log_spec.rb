@@ -23,8 +23,14 @@ RSpec.describe MutatorRails::MutationLog do
   end
   
   describe '#alive' do
-    it 'has a alive count' do
+    it 'has an alive count' do
       expect(object.alive).to equal 26
+    end
+  end
+
+  describe '#link' do
+    it 'has a link' do
+      expect(object.link).to eql '=HYPERLINK("models/test.log","Export::ActivityExporter")'
     end
   end
 end

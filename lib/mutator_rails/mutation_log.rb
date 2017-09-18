@@ -51,6 +51,10 @@ module MutatorRails
       content.match(/Jobs:.+?(\d+)$/)[1].to_i.eql(1) rescue false
     end
 
+    def link
+      "=HYPERLINK(\"#{relative_path}\",\"#{klass}\")"
+    end
+
     private
 
     attr_reader :content
@@ -79,10 +83,6 @@ module MutatorRails
       Pathname(target_log).realpath
     end
 
-    def link
-      "=HYPERLINK(\"#{relative_path}\",\"#{klass}\")"
-    end
-
     def kills
       content.match(/Kills:.+?(\d+)$/)[1] rescue 0
     end
@@ -103,8 +103,6 @@ module MutatorRails
     def total
       alive.to_i + kills.to_i
     end
-
-
 
     def <=>(other)
       [pct, -alive, link] <=> [other.pct, -other.alive, other.link]
