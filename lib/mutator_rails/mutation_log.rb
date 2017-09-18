@@ -51,6 +51,10 @@ module MutatorRails
       content.match(/Jobs:.+?(\d+)$/)[1].to_i.eql(1) rescue false
     end
 
+    def link
+      "=HYPERLINK(\"#{relative_path}\",\"#{klass}\")"
+    end
+
     private
 
     attr_reader :content
@@ -77,10 +81,6 @@ module MutatorRails
 
     def absolute_file_path
       Pathname(target_log).realpath
-    end
-
-    def link
-      "=HYPERLINK(\"#{relative_path}\",\"#{klass}\")"
     end
 
     def kills
