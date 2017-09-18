@@ -11,7 +11,7 @@ module MutatorRails
       list = ListMaker.new.make_list
       return if list.blank?
 
-      content = list.sort.map(&:to_s).join("\n")
+      content = list.map(&:to_s).join("\n")
 
       puts " ... storing #{csv}"
       File.write(csv,

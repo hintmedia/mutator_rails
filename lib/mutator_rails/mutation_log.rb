@@ -104,8 +104,6 @@ module MutatorRails
       alive.to_i + kills.to_i
     end
 
-
-
     def <=>(other)
       [pct, -alive, link] <=> [other.pct, -other.alive, other.link]
     end

@@ -4,7 +4,6 @@ require 'mutator_rails/single_mutate'
 
 module MutatorRails
   class ListMaker
-    include Procto.call
     include Adamantium::Flat
 
     def make_list
@@ -20,7 +19,7 @@ module MutatorRails
           puts "Error: #{se}"
         end
       end
-      list
+      list.sort
     end
   end
 end
