@@ -107,7 +107,7 @@ module MutatorRails
 
 
     def <=>(other)
-      [pct, -alive, link] <=> [other.pct, -other.alive, link]
+      [pct, -alive, link] <=> [other.pct, -other.alive, other.link]
     end
   end
 end
