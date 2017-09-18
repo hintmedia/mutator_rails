@@ -72,7 +72,8 @@ module MutatorRails
     end
 
     def klass
-      content.match(/match_expressions: \[(.+?)\]>$/)[1]
+      k = content.match(/match_expressions: \[(.+?)\]>$/)
+      k ? k[1] : ''
     end
 
     def failure
