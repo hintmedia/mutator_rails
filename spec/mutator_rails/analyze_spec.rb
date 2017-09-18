@@ -15,5 +15,12 @@ RSpec.describe MutatorRails::Analyze do
 
       expect(File.exist?(analysis_file)).to be true
     end
+
+    it 'has the correct number of lines' do
+      object
+      analysis = File.read(analysis_file)
+
+      expect(analysis.split("\n")).to have(3).lines
+    end
   end
 end

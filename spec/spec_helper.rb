@@ -9,6 +9,7 @@ SimpleCov.start 'rails' unless File.basename($0).eql?('mutant')
 
 require 'bundler/setup'
 require 'mutator_rails'
+require 'rspec/collection_matchers'
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

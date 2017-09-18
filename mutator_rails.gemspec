@@ -28,6 +28,7 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'rspec-expectations',   '~> 3.6.0'
   gem.add_development_dependency 'rspec_junit_formatter'
   gem.add_development_dependency 'codeclimate-test-reporter'
+  gem.add_development_dependency 'rspec-collection_matchers'
   gem.add_development_dependency 'rspec-mocks',          '~> 3.6.0'
   gem.add_development_dependency 'mutant',               '~> 0.8.14'
   gem.add_development_dependency 'mutant-rspec',         '~> 0.8.14'
