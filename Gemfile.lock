@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    mutator_rails (0.1.6)
+    mutator_rails (0.1.8)
 
 GEM
   remote: https://rubygems.org/
@@ -226,4 +226,4 @@ DEPENDENCIES
   rspec_junit_formatter
 
 BUNDLED WITH
-   1.15.3
+   1.15.4
