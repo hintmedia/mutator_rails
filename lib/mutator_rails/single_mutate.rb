@@ -77,7 +77,7 @@ module MutatorRails
     def first_run(parms)
       cmd = spec_opt + COMMAND + parms.join(' ')
 
-      if !guide.current?(log, code_md5, spec_md5) || !complete?(log)
+      if changed? || !complete?(log) || failed?(log)
         puts "[#{Time.current.iso8601}] #{cmd}"
         `#{cmd}` unless ENV['RACK_ENV'].eql?('test')
         guide.update(log, code_md5, spec_md5)
@@ -99,6 +99,11 @@ module MutatorRails
       /^Subjects: / === content
     end
 
+    def failed?(log)
+      content = File.read(log)
+      /Failures:/ === content
+    end
+
     def log_correct?
       guide.current?(log, code_md5, spec_md5)
     end
@@ -117,6 +122,10 @@ module MutatorRails
     end
 
     private
+    
+    def changed?
+      !guide.current?(log, code_md5, spec_md5)
+    end
 
     def logroot
       MutatorRails::Config.configuration.logroot
