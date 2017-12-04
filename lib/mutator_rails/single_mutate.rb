@@ -124,7 +124,7 @@ module MutatorRails
     private
     
     def changed?
-      !guide.current?(log, code_md5, spec_md5)
+      !log_correct?
     end
 
     def logroot
