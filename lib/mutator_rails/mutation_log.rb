@@ -96,7 +96,7 @@ module MutatorRails
 
 
     def runtime
-      content.match(/Runtime:\s+?(.+)s/)[1].to_f
+      content.match(/Runtime:\s+?(.+)s/).captures.first.to_f
     rescue
       0.0
     end
