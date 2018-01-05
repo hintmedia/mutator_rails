@@ -17,10 +17,11 @@ Gem::Specification.new do |gem|
   gem.required_rubygems_version = '>= 1.3.6'
   gem.required_ruby_version     = '>= 2.3'
 
-  gem.files = FileList['lib     .rb',
-                       'bin/*',
-                       '[A-Z]*',
-                       'test/   *'].to_a
+  gem.files = Dir['Rakefile',
+                  '{bin,lib,man,test,spec}/**/*',
+                  'README*',
+                  'LICENSE*',
+                  'CODE_OF_CONDUCT*'] & `git ls-files -z`.split("\0")
   gem.extra_rdoc_files = 'LICENSE'
   gem.executables      = 'mutator_rails'
 
