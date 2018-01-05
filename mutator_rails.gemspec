@@ -9,7 +9,7 @@ Gem::Specification.new do |gem|
   gem.email         = ['tim@possibilogy.com', 'jason@dinjas.com']
   gem.summary       = 'Integrate automated mutation testing into Rails.'
   gem.description   = 'Automate mutation testing to find weaknesses in code'
-  gem.homepage      = 'https::github.com/dinj-oss/mutator_rails'
+  gem.homepage      = 'https://github.com/dinj-oss/mutator_rails'
   gem.license       = 'MIT'
 
   gem.require_paths             = ['lib']
