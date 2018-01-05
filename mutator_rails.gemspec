@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require File.expand_path('../lib/mutator_rails/version', __FILE__)
+require 'rake'
 
 Gem::Specification.new do |gem|
   gem.name          = 'mutator_rails'
