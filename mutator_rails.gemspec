@@ -16,8 +16,10 @@ Gem::Specification.new do |gem|
   gem.required_rubygems_version = '>= 1.3.6'
   gem.required_ruby_version     = '>= 2.3'
 
-  excluded_files       = ''.split("\n")
-  gem.files            = `git ls-files`.split("\n") - excluded_files
+  gem.files = FileList['lib     .rb',
+                       'bin/*',
+                       '[A-Z]*',
+                       'test/   *'].to_a
   gem.extra_rdoc_files = 'LICENSE'
   gem.executables      = 'mutator_rails'
 
