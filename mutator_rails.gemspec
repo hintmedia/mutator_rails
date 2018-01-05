@@ -12,14 +12,12 @@ Gem::Specification.new do |gem|
   gem.homepage      = 'https::github.com/dinj-oss/mutator_rails'
   gem.license       = 'MIT'
 
-  gem.require_paths             = 'lib'
+  gem.require_paths             = ['lib']
   gem.required_rubygems_version = '>= 1.3.6'
   gem.required_ruby_version     = '>= 2.3'
 
   gem.files            = `git ls-files`.split("\n")
   gem.test_files       = `git ls-files -- {spec}/*`.split("\n")
-  gem.extra_rdoc_files = 'LICENSE'
-  gem.executables      = 'mutator_rails'
 
   gem.add_development_dependency 'bundler',              '~> 1.15'
   gem.add_development_dependency 'rake',                 '~> 12.0'
