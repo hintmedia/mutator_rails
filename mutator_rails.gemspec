@@ -25,7 +25,7 @@ Gem::Specification.new do |gem|
   gem.executables      = 'mutator_rails'
 
   gem.add_development_dependency 'bundler',              '~> 1.15'
-  gem.add_development_dependency 'rake',                 '~> 10.0'
+  gem.add_development_dependency 'rake',                 '~> 12.0'
   gem.add_development_dependency 'rails',                '>= 4.0'
   gem.add_development_dependency 'rspec-core',           '~> 3.6.0'
   gem.add_development_dependency 'rspec-expectations',   '~> 3.6.0'

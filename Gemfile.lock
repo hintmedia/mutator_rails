@@ -154,7 +154,7 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rainbow (2.2.2)
       rake
-    rake (10.5.0)
+    rake (12.3.0)
     reek (4.7.2)
       codeclimate-engine-rb (~> 0.4.0)
       parser (>= 2.4.0.0, < 2.5)
@@ -220,7 +220,7 @@ DEPENDENCIES
   mutator_rails!
   procto (~> 0.0.3)
   rails (>= 4.0)
-  rake (~> 10.0)
+  rake (~> 12.0)
   reek (~> 4.7.2)
   rspec-collection_matchers
   rspec-core (~> 3.6.0)
@@ -229,4 +229,4 @@ DEPENDENCIES
   rspec_junit_formatter
 
 BUNDLED WITH
-   1.15.4
+   1.16.0.pre.2
