@@ -8,6 +8,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
 ### Added
 
+### Changed
+
+### Removed
+
+## [20180126] - 2018-01-26
+
 - Added this changelog.
   [I41](https://github.com/dinj-oss/mutator_rails/issues/41) [PR40]
   
