@@ -18,6 +18,34 @@ And then execute:
 
 ## Usage
 
+MutatorRails makes several rake tasks available to your Rails project.
+
+### analyze
+
+Performs analysis of the mutation log directory to generate a summary csv
+showing the following information for each mutant log file found:
+
+- Log file name
+- Number of mutations killed
+- Number of mutations alive
+- Total number of mutations
+- Percent of mutations killed
+- Mutations killed per second
+- Length of time needed to mutate source (runtime) 
+
+### mutate
+
+
+
+### cleanup
+
+### mutate_files
+
+### mutator
+
+### statistics
+
+
 TODO: Write usage instructions here
 
 ## Development
