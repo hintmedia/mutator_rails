@@ -16,9 +16,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
 ### Changed
 
+- Altered the order of the tasks run under `mutator:all` so that the `cleanup`
+  phase occurs before the `analyze` phase.
+  [I39](https://github.com/dinj-oss/mutator_rails/issues/39) [PR44] 
+
 ### Removed
 
 
 
 [PR40]: https://github.com/dinj-oss/mutator_rails/pull/40
 [PR42]: https://github.com/dinj-oss/mutator_rails/pull/42
+[PR44]: https://github.com/dinj-oss/mutator_rails/pull/44
