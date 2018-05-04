@@ -12,6 +12,17 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
 ### Removed
 
+## [0.1.11] - 2018-05-04
+
+### Added
+
+### Changed
+
+- Updated `rails-html-sanitzer` gem to address security vulnerability.
+  [I46](https://github.com/dinj-oss/mutator_rails/issues/46) [PR45](https://github.com/dinj-oss/mutator_rails/pull/45)
+
+### Removed
+
 ## [0.1.10] - 2018-04-13
 
 ### Added
