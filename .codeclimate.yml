@@ -1,5 +1,6 @@
 ---
-engines:
+version: "2"
+plugins:
   bundler-audit:
     enabled: true
   duplication:
@@ -11,10 +12,6 @@ engines:
     enabled: true
   rubocop:
     enabled: true
-ratings:
-  paths:
-  - Gemfile.lock
-  - "**.rake"
-  - "**.rb"
-exclude_paths:
+
+exclude_patterns:
 - bin/
