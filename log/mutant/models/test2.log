@@ -5,7 +5,7 @@ Module#name from: XPath returned name(.). Fix your lib to follow normal ruby sem
 Mutant configuration:
 Matcher:         #<Mutant::Matcher::Config match_expressions: [Export::ActivityExporter2]>
 Integration:     Mutant::Integration::Rspec
-Jobs:            6
+Jobs:            1
 Includes:        []
 Requires:        ["./config/environment.rb"]
 (00/99) 100% - killtime: 0.00s runtime: 0.00s overhead: 0.00s
@@ -77,7 +77,7 @@ Requires:        ["./config/environment.rb"]
 Mutant configuration:
 Matcher:         #<Mutant::Matcher::Config match_expressions: [Export::ActivityExporter2]>
 Integration:     Mutant::Integration::Rspec
-Jobs:            6
+Jobs:            1
 Includes:        []
 Requires:        ["./config/environment.rb"]
 Subjects:        3

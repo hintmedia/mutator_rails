@@ -19,6 +19,9 @@ and 146 killed (73.7%)
 
 0 module(s) were fully mutated (0.0%)
 
+The following modules fell back to non-parallel(-j1):
+ . Export::ActivityExporter2
+
 The following modules had most alive mutations (top 10):
  . Export::ActivityExporter (26)
  . Export::ActivityExporter2 (26)

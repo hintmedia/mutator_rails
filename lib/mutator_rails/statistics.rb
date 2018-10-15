@@ -53,12 +53,12 @@ module MutatorRails
       header = false
       content.each do |detail|
         failure = detail[8]
-        if failure
+        if failure.eql?(1)
           unless header
             j1_header
             header = true
           end
-          stats << detail[0]
+          stats << " . " + detail[0]
         end
       end
     end

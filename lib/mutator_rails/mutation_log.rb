@@ -11,7 +11,9 @@ module MutatorRails
                'total',
                'pct killed',
                'mutations per sec',
-               'runtime'].join("\t") + "\n").freeze
+               'runtime',
+               'failure',
+               'j1'].join("\t") + "\n").freeze
 
     def initialize(*)
       super
@@ -22,7 +24,7 @@ module MutatorRails
     def to_s
       return '' unless complete?
 
-      [link, kills, alive, total, pct, mutations_per_sec, runtime].join("\t")
+      [link, kills, alive, total, pct, mutations_per_sec, runtime, failure, j1].join("\t")
     rescue
       ''
     end
@@ -48,7 +50,7 @@ module MutatorRails
     end
 
     def j1
-      content.match(/Jobs:.+?(\d+)$/)[1].to_i.eql(1) rescue false
+      content.match(/Jobs:.+?(\d+)$/)[1].to_i rescue 2
     end
 
     def link
