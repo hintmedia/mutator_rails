@@ -39,7 +39,7 @@ module MutatorRails
             failure_header
             header = true
           end
-          stats <<  " . " + detail[0]
+          stats << " . " + detail[0]
         end
       end
     end
