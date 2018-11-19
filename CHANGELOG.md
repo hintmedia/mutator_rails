@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
 ### Added
 
+- Add -j1 fallback and failure tracking to statistics.
+  [I50](https://github.com/dinj-oss/mutator_rails/issues/50) [PR49](https://github.com/dinj-oss/mutator_rails/pull/49)
+
+
 ### Changed
 
 ### Removed

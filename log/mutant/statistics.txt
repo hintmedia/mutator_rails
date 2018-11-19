@@ -6,6 +6,9 @@ and 146 killed (73.7%)
 
 0 module(s) were fully mutated (0.0%)
 
+The following modules remain with failures (check log):
+ . Export::ActivityExporter
+
 The following modules fell back to non-parallel(-j1):
  . Export::ActivityExporter2
 

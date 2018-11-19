@@ -1,3 +1,3 @@
 log	kills	alive	total	pct killed	mutations per sec	runtime	failure	j1
-=HYPERLINK("models/test.log","Export::ActivityExporter")	73	26	99	73.737	1.559	63.52	false	6
+=HYPERLINK("models/test.log","Export::ActivityExporter")	73	26	99	73.737	1.559	63.52	true	6
 =HYPERLINK("models/test2.log","Export::ActivityExporter2")	73	26	99	73.737	1.559	63.52	false	1

@@ -73,6 +73,8 @@ Requires:        ["./config/environment.rb"]
 (71/99)  73% - killtime: 346.07s runtime: 62.51s overhead: -283.56s
 (73/99)  73% - killtime: 354.33s runtime: 63.52s overhead: -290.81s
 
+Failures:
+ 
 -----------------------
 Mutant configuration:
 Matcher:         #<Mutant::Matcher::Config match_expressions: [Export::ActivityExporter]>
