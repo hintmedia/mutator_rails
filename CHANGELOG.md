@@ -11,6 +11,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 - Add -j1 fallback and failure tracking to statistics.
   [I50](https://github.com/dinj-oss/mutator_rails/issues/50) [PR49](https://github.com/dinj-oss/mutator_rails/pull/49)
 
+- Add check for pending migrations that fail jobs.
+  [I57](https://github.com/dinj-oss/mutator_rails/issues/57) [PR60](https://github.com/dinj-oss/mutator_rails/pull/60)
+
 
 ### Changed
 
