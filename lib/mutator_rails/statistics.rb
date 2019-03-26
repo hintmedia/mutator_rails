@@ -43,7 +43,7 @@ module MutatorRails
           l << " . " + detail[0]
         end
       end
-      stats += l.sort if l.any?
+      @stats += l.sort if l.any?
     end
 
     def failure_header
@@ -64,7 +64,7 @@ module MutatorRails
           l << " . " + detail[0]
         end
       end
-      stats += l.sort if l.any?
+      @stats += l.sort if l.any?
     end
 
     def j1_header
