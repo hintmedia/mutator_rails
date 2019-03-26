@@ -101,7 +101,8 @@ module MutatorRails
 
     def failed?(log)
       content = File.read(log)
-      /Failures:/ === content || /ActiveRecord::PendingMigrationError/ === content
+      /Failures:/ === content ||
+        /ActiveRecord::PendingMigrationError/ === content
     end
 
     def log_correct?
