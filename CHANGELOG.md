@@ -17,6 +17,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
 ### Changed
 
+- Sort the -j1 and failure lists to keep them in order for GIT.
+  [I56](https://github.com/dinj-oss/mutator_rails/issues/56) [PR61](https://github.com/dinj-oss/mutator_rails/pull/61)
+
+
 - Upgrade for rails security issues.
   [I58](https://github.com/dinj-oss/mutator_rails/issues/58) [PR59](https://github.com/dinj-oss/mutator_rails/pull/59)
 
