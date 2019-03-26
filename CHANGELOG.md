@@ -14,10 +14,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
 ### Changed
 
-- Upgrade for rails security issues.
-  [I58](https://github.com/dinj-oss/mutator_rails/issues/58) [PR59](https://github.com/dinj-oss/mutator_rails/pull/59)
-
-
 ### Removed
 
 ## [0.1.11] - 2018-05-04
