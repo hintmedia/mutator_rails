@@ -32,6 +32,7 @@ module MutatorRails
 
     def failures
       header = false
+      l = []
       content.each do |detail|
         failure = detail[7]
         if failure
@@ -39,9 +40,10 @@ module MutatorRails
             failure_header
             header = true
           end
-          stats << " . " + detail[0]
+          l << " . " + detail[0]
         end
       end
+      stats += l.sort if l.any?
     end
 
     def failure_header
@@ -51,6 +53,7 @@ module MutatorRails
 
     def fallback_to_j1
       header = false
+      l = []
       content.each do |detail|
         failure = detail[8]
         if failure.eql?(1)
@@ -58,9 +61,10 @@ module MutatorRails
             j1_header
             header = true
           end
-          stats << " . " + detail[0]
+          l << " . " + detail[0]
         end
       end
+      stats += l.sort if l.any?
     end
 
     def j1_header
