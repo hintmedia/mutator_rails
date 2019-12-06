@@ -6,10 +6,10 @@ Gem::Specification.new do |gem|
   gem.name          = 'mutator_rails'
   gem.version       = MutatorRails::VERSION.dup
   gem.authors       = %w[Tim\ Chambers Jason\ Dinsmore]
-  gem.email         = ['tim@possibilogy.com', 'jason@dinjas.com']
+  gem.email         = ['tim@hint.io', 'jason@hint.io']
   gem.summary       = 'Integrate automated mutation testing into Rails.'
   gem.description   = 'Automate mutation testing to find weaknesses in code'
-  gem.homepage      = 'https://github.com/dinj-oss/mutator_rails'
+  gem.homepage      = 'https://github.com/hintmedia/mutator_rails'
   gem.license       = 'MIT'
 
   gem.require_paths             = ['lib']
