@@ -21,7 +21,7 @@ Gem::Specification.new do |gem|
 
   gem.add_development_dependency 'actionview',           '>= 5.1.6.2'
   gem.add_development_dependency 'bundler',              '~> 1.15'
-  gem.add_development_dependency 'rake',                 '~> 12.0'
+  gem.add_development_dependency 'rake',                 '~> 13.0'
   gem.add_development_dependency 'rails',                '>= 4.0'
   gem.add_development_dependency 'rspec-core',           '~> 3.6.0'
   gem.add_development_dependency 'rspec-expectations',   '~> 3.6.0'
