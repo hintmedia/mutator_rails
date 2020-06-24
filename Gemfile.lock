@@ -134,7 +134,7 @@ GEM
     parser (2.4.0.0)
       ast (~> 2.2)
     procto (0.0.3)
-    rack (2.0.8)
+    rack (2.2.3)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (5.2.2.1)
