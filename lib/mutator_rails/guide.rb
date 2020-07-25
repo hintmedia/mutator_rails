@@ -15,13 +15,17 @@ module MutatorRails
       # p guides[log]
       File.exist?(log) &&
         File.size(log).positive? &&
-        guides[log].present? &&
+        log_exists?(log) &&
         guides[log].eql?([code_md5, spec_md5, MUTANT_VERSION])
     end
 
     def update(log, code_md5, spec_md5)
       guides[log] = [code_md5, spec_md5, MUTANT_VERSION]
       recreate
+    end
+
+    def log_exists?(log)
+      guides[log].present?
     end
 
     def remove(log)

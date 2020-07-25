@@ -6,8 +6,14 @@ RSpec.describe MutatorRails::FullMutate do
   let(:object) { described_class.call }
 
   describe '#call' do
-    it 'processes the all code' do
+    it 'processes all code' do
       object
+    end
+  end
+
+  describe '#unprocessed' do
+    it 'processes the unprocessed code' do
+      described_class.new.unprocessed
     end
   end
 end

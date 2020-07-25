@@ -16,7 +16,18 @@ module MutatorRails
       process(all_files)
     end
 
+    def unprocessed
+      process(unprocessed_files)
+    end
+
     private
+
+    def unprocessed_files
+      files.select do |file|
+        sm = SingleMutate.new(guide, file)
+        !exclude?(file) && !guide.log_exists?(sm.log)
+      end
+    end
 
     def process(files)
       files.sort_by { |x| File.size(x) }.each do |file|
