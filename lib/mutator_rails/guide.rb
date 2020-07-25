@@ -67,7 +67,5 @@ module MutatorRails
         FileUtils.mkdir_p(p.dirname)
       end
     end
-
-
   end
 end
