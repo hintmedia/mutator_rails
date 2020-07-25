@@ -13,8 +13,7 @@ module MutatorRails
       parms << '1> ' + log.to_s
       log_dir
 
-      cmd = first_run(parms)
-      # rerun(cmd)
+      rerun(cmd(parms)) || first_run(parms)
     end
 
     def log
@@ -82,7 +81,7 @@ module MutatorRails
     end
 
     def first_run(parms)
-      cmd = spec_opt + COMMAND + parms.join(' ')
+      cmd = cmd(parms)
 
       if changed? || !complete?(log) || failed?(log)
         puts "[#{Time.current.iso8601}] #{cmd}"
@@ -91,6 +90,10 @@ module MutatorRails
       end
 
       cmd
+    end
+
+    def cmd(parms)
+      spec_opt + COMMAND + parms.join(' ')
     end
 
     def spec_opt
