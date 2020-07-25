@@ -20,12 +20,27 @@ module MutatorRails
       process(unprocessed_files)
     end
 
+    def j1
+      process(j1_files)
+    end
+
+    def changed
+      process(all_files - unprocessed_files - j1_files)
+    end
+
     private
 
     def unprocessed_files
       all_files.select do |file|
         sm = SingleMutate.new(guide, file)
         !exclude?(file) && !guide.log_exists?(sm.log)
+      end
+    end
+
+    def j1_files
+      all_files.select do |file|
+        sm = SingleMutate.new(guide, file)
+        !exclude?(file) && sm.need_j1?
       end
     end
 

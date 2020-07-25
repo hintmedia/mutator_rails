@@ -23,7 +23,7 @@ module MutatorRails
         guide.update(full_log, code_md5, spec_md5)
         File.rename(old_log, full_log)
       end
-      
+
       full_log
     end
 
@@ -72,6 +72,13 @@ module MutatorRails
       puts log
       puts "[#{Time.current.iso8601}] #{cmd2}"
       `#{cmd2}` unless ENV['RACK_ENV'].eql?('test')
+    end
+
+    def need_j1?
+      return false unless File.exist?(log)
+      
+      content = File.read(log)
+      /Failures:/ === content
     end
 
     def first_run(parms)
@@ -123,7 +130,7 @@ module MutatorRails
     end
 
     private
-    
+
     def changed?
       !log_correct?
     end

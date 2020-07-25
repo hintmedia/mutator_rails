@@ -10,7 +10,7 @@ if Rails.env.development? || Rails.env.test?
 
   namespace :mutator do
     desc 'Run whole mutation process'
-    task all: %i[files cleanup analyze statistics] do
+    task all: %i[unprocessed_files changed_files j1_files files cleanup analyze statistics] do
       puts 'all processed!'
     end
   end

@@ -16,4 +16,16 @@ RSpec.describe MutatorRails::FullMutate do
       described_class.new.unprocessed
     end
   end
+
+  describe '#j1' do
+    it 'processes the j1 code' do
+      described_class.new.j1
+    end
+  end
+
+  describe '#changed' do
+    it 'processes the changed code' do
+      described_class.new.changed
+    end
+  end
 end
