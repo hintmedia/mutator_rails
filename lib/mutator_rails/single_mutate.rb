@@ -14,7 +14,7 @@ module MutatorRails
       log_dir
 
       cmd = first_run(parms)
-      rerun(cmd)
+      # rerun(cmd)
     end
 
     def log
@@ -76,7 +76,7 @@ module MutatorRails
 
     def need_j1?
       return false unless File.exist?(log)
-      
+
       content = File.read(log)
       /Failures:/ === content
     end
