@@ -23,7 +23,7 @@ module MutatorRails
     private
 
     def unprocessed_files
-      files.select do |file|
+      all_files.select do |file|
         sm = SingleMutate.new(guide, file)
         !exclude?(file) && !guide.log_exists?(sm.log)
       end
