@@ -13,8 +13,7 @@ module MutatorRails
       parms << '1> ' + log.to_s
       log_dir
 
-      cmd = first_run(parms)
-      rerun(cmd)
+      rerun(cmd(parms)) || first_run(parms)
     end
 
     def log
@@ -23,7 +22,7 @@ module MutatorRails
         guide.update(full_log, code_md5, spec_md5)
         File.rename(old_log, full_log)
       end
-      
+
       full_log
     end
 
@@ -74,8 +73,15 @@ module MutatorRails
       `#{cmd2}` unless ENV['RACK_ENV'].eql?('test')
     end
 
+    def need_j1?
+      return false unless File.exist?(log)
+
+      content = File.read(log)
+      /Failures:/ === content
+    end
+
     def first_run(parms)
-      cmd = spec_opt + COMMAND + parms.join(' ')
+      cmd = cmd(parms)
 
       if changed? || !complete?(log) || failed?(log)
         puts "[#{Time.current.iso8601}] #{cmd}"
@@ -84,6 +90,10 @@ module MutatorRails
       end
 
       cmd
+    end
+
+    def cmd(parms)
+      spec_opt + COMMAND + parms.join(' ')
     end
 
     def spec_opt
@@ -123,7 +133,7 @@ module MutatorRails
     end
 
     private
-    
+
     def changed?
       !log_correct?
     end
