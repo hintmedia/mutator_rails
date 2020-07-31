@@ -8,6 +8,16 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
 ### Added
 
+### Changed
+
+### Removed
+
+## [0.1.17] - 2020-07-31
+
+_NB: Some of the changes below were released in versions not reflected in this Changelog. This entry brings us up to date._
+
+### Added
+
 - Add -j1 fallback and failure tracking to statistics.
   [I50](https://github.com/dinj-oss/mutator_rails/issues/50) [PR49](https://github.com/dinj-oss/mutator_rails/pull/49)
 
@@ -55,7 +65,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
 - Added this changelog.
   [I41](https://github.com/dinj-oss/mutator_rails/issues/41) [PR40](https://github.com/dinj-oss/mutator_rails/pull/40)
-  
+
 - Updated Nokogiri gem to 1.8.1 to address a security vulnerability.
   [I38](https://github.com/dinj-oss/mutator_rails/issues/38) [PR42](https://github.com/dinj-oss/mutator_rails/pull/42)
 
