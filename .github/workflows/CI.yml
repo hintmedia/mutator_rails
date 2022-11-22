@@ -13,12 +13,6 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    env:
-      RAILS_ENV: test
-      DATABASE_NAME: pts_db
-      DATABASE_USER: postgres
-      DATABASE_PASSWORD: postgres
-      DATABASE_HOST: "127.0.0.1"
 
     steps:
       - name: Checkout code
