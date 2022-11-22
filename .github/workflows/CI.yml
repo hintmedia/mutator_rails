@@ -30,7 +30,4 @@ jobs:
 
       # Add or replace test runners here
       - name: Run tests
-        run: bundle exec rspec --profile 10 \
-                            --format RspecJunitFormatter \
-                            --out /tmp/test-results/rspec.xml \
-                            --format progress
+        run: bundle exec rspec
