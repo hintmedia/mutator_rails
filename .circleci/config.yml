@@ -4,7 +4,7 @@ jobs:
     parallelism: 1
     working_directory: ~/mutator_rails
     docker:
-      - image: circleci/ruby:2.4.1
+      - image: circleci/ruby:2.7.4
     steps:
       - checkout
 
