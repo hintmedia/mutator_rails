@@ -16,7 +16,7 @@ RSpec.describe MutatorRails::SingleMutate do
   describe '#old_log' do
     it 'returns old log file name (deprecated name)' do
       expect(object.old_log)
-        .to eql('log/mutant/models/test_fdef5a515ce8eff897a72b026aadbaba_0e7f4802f58bbbb186be8b44a74a33e3_0.8.14.log')
+        .to eql('log/mutant/models/test_fdef5a515ce8eff897a72b026aadbaba_0e7f4802f58bbbb186be8b44a74a33e3_0.10.21.log')
     end
   end
 
@@ -46,7 +46,7 @@ RSpec.describe MutatorRails::SingleMutate do
       expect(object.log_dir.to_s).to eql('log/mutant/models')
     end
   end
-  
+
   describe '#spec_md5' do
     it 'returns md5 hash of spec file' do
       expect(object.spec_md5)

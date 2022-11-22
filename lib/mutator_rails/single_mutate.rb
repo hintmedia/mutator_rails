@@ -69,7 +69,7 @@ module MutatorRails
       FileUtils.cp(log, '/tmp')
       cmd2 = cmd.sub('--use', '-j1 --use')
       puts log
-      puts "[#{Time.current.iso8601}] #{cmd2}"
+      puts "[#{Time.now.iso8601}] #{cmd2}"
       `#{cmd2}` unless ENV['RACK_ENV'].eql?('test')
     end
 
@@ -84,7 +84,7 @@ module MutatorRails
       cmd = cmd(parms)
 
       if changed? || !complete?(log) || failed?(log)
-        puts "[#{Time.current.iso8601}] #{cmd}"
+        puts "[#{Time.now.iso8601}] #{cmd}"
         `#{cmd}` unless ENV['RACK_ENV'].eql?('test')
         guide.update(log, code_md5, spec_md5)
       end
